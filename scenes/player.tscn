@@ -1,4 +1,4 @@
-[gd_scene load_steps=235 format=3 uid="uid://dvli146bs7cxm"]
+[gd_scene load_steps=236 format=3 uid="uid://dvli146bs7cxm"]
 
 [ext_resource type="Script" uid="uid://d2swjnea4cfm5" path="res://scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Script" uid="uid://dwi7lijsxayw5" path="res://scripts/animation.gd" id="2_6t5aa"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cg1qe00ka7t2v" path="res://assets/Sprites/walk_right.png" id="7_3smsa"]
 [ext_resource type="Texture2D" uid="uid://dllwr4dvvs2gt" path="res://assets/Sprites/walk_down.png" id="7_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://dljmqx2040vk5" path="res://assets/Sprites/walk_up.png" id="8_8erm5"]
+[ext_resource type="Texture2D" uid="uid://dyjjqk3e4hiue" path="res://assets/Sprites/E_Key.png" id="10_y4r1p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
 atlas = ExtResource("3_6t5aa")
@@ -1619,6 +1620,7 @@ radius = 20.0
 height = 148.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_cvnsp")
 
 [node name="AnimationNode" type="Node2D" parent="." node_paths=PackedStringArray("player_controller")]
@@ -1636,3 +1638,10 @@ frame_progress = 0.90798366
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -64)
 shape = SubResource("CapsuleShape2D_ur7pv")
+
+[node name="ButtonPrompt" type="Sprite2D" parent="."]
+z_index = 5
+z_as_relative = false
+position = Vector2(0, -177.845)
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("10_y4r1p")

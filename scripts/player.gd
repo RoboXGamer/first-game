@@ -1,6 +1,17 @@
 extends CharacterBody2D
-
 class_name PlayerController
+
+# Interact Prompt 
+var Interact_Node = null : set = set_interact
+func _ready():
+	set_interact(null)
+func set_interact(new_value):
+	if new_value != null:
+		$ButtonPrompt.show()
+	else:
+		$ButtonPrompt.hide()
+	Interact_Node = new_value
+
 
 @export var move_speed = 85.0
 
