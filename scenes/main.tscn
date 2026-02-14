@@ -80,6 +80,7 @@ texture = ExtResource("3_tbgi4")
 polygon = PackedVector2Array(4225, 2340, 4306, 2381, 4378, 2338, 4306, 2292)
 
 [node name="Entrance" type="Area2D" parent="Infrastucture/House1"]
+position = Vector2(0, 1)
 collision_layer = 0
 collision_mask = 2
 

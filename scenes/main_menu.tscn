@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://d6ixfg1dbu2i"]
+
+[ext_resource type="Script" uid="uid://cy1wlbpr6ehcd" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://gah5diun44i6" path="res://assets/Sprites/Main Menu.png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://bcs2a78v0lngt" path="res://assets/Sprites/Menu_Start.png" id="3_8ln24"]
+[ext_resource type="Texture2D" uid="uid://bqcs05p1b84k6" path="res://assets/Sprites/Menu_Start_Hover.png" id="4_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://dnbrc4ep0vy2d" path="res://assets/Sprites/Menu_Continue.png" id="5_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://qda62k2624sp" path="res://assets/Sprites/Menu_Continue_Hover.png" id="6_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://crwtducxta5c3" path="res://assets/Sprites/Menu_Options.png" id="7_flqon"]
+[ext_resource type="Texture2D" uid="uid://dxqvmgtp3jfxg" path="res://assets/Sprites/Menu_Options_Hover.png" id="8_rcqid"]
+[ext_resource type="Texture2D" uid="uid://beyacjss0o6bg" path="res://assets/Sprites/Menu_Exit.png" id="9_1ajci"]
+[ext_resource type="Texture2D" uid="uid://byxhixygsqqp3" path="res://assets/Sprites/Menu_Exit_Hover.png" id="10_7b55j"]
+
+[node name="Main Menu" type="Node2D"]
+scale = Vector2(0.89, 0.89)
+script = ExtResource("1_l6cm7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -93.25843
+offset_top = -20.224722
+offset_right = 1314.7416
+offset_bottom = 747.77527
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_wu84c")
+stretch_mode = 6
+
+[node name="ButtonContainer" type="CenterContainer" parent="."]
+offset_left = 31.460632
+offset_top = 21.348297
+offset_right = 37.07865
+offset_bottom = 76.3483
+
+[node name="Button_Manager" type="Control" parent="ButtonContainer"]
+layout_mode = 2
+
+[node name="Start" type="TextureButton" parent="ButtonContainer/Button_Manager"]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 334.0
+offset_right = 552.0
+offset_bottom = 442.0
+texture_normal = ExtResource("3_8ln24")
+texture_hover = ExtResource("4_rtw2f")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Continue" type="TextureButton" parent="ButtonContainer/Button_Manager"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 334.0
+offset_right = 863.0
+offset_bottom = 442.0
+texture_normal = ExtResource("5_5dd4i")
+texture_hover = ExtResource("6_lgwnu")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Options" type="TextureButton" parent="ButtonContainer/Button_Manager"]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 493.0
+offset_right = 557.0
+offset_bottom = 602.0
+texture_normal = ExtResource("7_flqon")
+texture_hover = ExtResource("8_rcqid")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Exit" type="TextureButton" parent="ButtonContainer/Button_Manager"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 493.0
+offset_right = 859.0
+offset_bottom = 599.0
+texture_normal = ExtResource("9_1ajci")
+texture_hover = ExtResource("10_7b55j")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="ButtonContainer/Button_Manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonContainer/Button_Manager/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="ButtonContainer/Button_Manager/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ButtonContainer/Button_Manager/Exit" to="." method="_on_exit_pressed"]
