@@ -12,6 +12,12 @@ func set_interact(new_value):
 		$ButtonPrompt.hide()
 	Interact_Node = new_value
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.is_action_pressed("Interact") and Interact_Node!=null:
+		Global.player_pos=global_position
+
+var Money = 1500
+
 
 @export var move_speed = 85.0
 
@@ -21,7 +27,7 @@ enum Facing {DOWN,UP,LEFT,RIGHT}
 var player_facing : Facing
 
 
-func _physics_process(delta):
+func _physics_process(delta):# direction & movement
 	# Vertical Direction Script
 	if Input.is_action_pressed("Player_Down"):
 		direction.y = 1

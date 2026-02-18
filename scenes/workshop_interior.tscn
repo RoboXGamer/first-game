@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckycf8ellfhu4"]
+
+[ext_resource type="Texture2D" uid="uid://dxeqjy6jqcywy" path="res://assets/buildings/mechanic_shop_interior.png" id="1_ogx1y"]
+[ext_resource type="Script" uid="uid://dd2g0akt3lit4" path="res://scripts/workshop_interior.gd" id="1_x4jcy"]
+[ext_resource type="PackedScene" uid="uid://dvli146bs7cxm" path="res://scenes/player.tscn" id="2_qlrsb"]
+[ext_resource type="Texture2D" uid="uid://nssr3yimb511" path="res://assets/Sprites/HUD_Money.png" id="3_dfvdi"]
+[ext_resource type="Script" uid="uid://ctrvqlyscsjmx" path="res://scripts/hud_money.gd" id="4_x4jcy"]
+[ext_resource type="FontFile" uid="uid://2mjcg45nn2i" path="res://assets/Fonts/Jersey10-Regular.ttf" id="5_j2uur"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w6pvp"]
+font = ExtResource("5_j2uur")
+font_size = 43
+font_color = Color(0, 0, 0, 1)
+
+[node name="WorkshopInterior" type="Node2D"]
+script = ExtResource("1_x4jcy")
+
+[node name="MechanicShopInterior" type="Sprite2D" parent="."]
+position = Vector2(618, 313)
+texture = ExtResource("1_ogx1y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MechanicShopInterior"]
+
+[node name="Walls" type="CollisionPolygon2D" parent="MechanicShopInterior/StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(-407, 347, 158, 353, 207, 335, 283, 305, 322, 324, 354, 370, 404, 347, 387, 290, 425, 234, 501, 256, 539, 233, 583, 195, 542, 167, 500, 144, 469, 125, 428, 101, 387, 79, 328, 44, 276, 18, 223, 53, 205, 67, 197, 97, 157, 125, 120, 139, 101, 158, 43, 132, 0, 108, -61, 86, -116, 139, -121, 162, -134, 189, -159, 182, -187, 182, -203, 174, -181, 149, -160, 166, -149, 129, -114, 112, -53, 82, -101, 76, -114, 47, -161, 7, -228, -1, -300, 31, -372, 72, -474, 141, -519, 201, -494, 238, -429, 250, -390, 232, -371, 258, -358, 296, -344, 325)
+
+[node name="Scooter" type="CollisionPolygon2D" parent="MechanicShopInterior/StaticBody2D"]
+polygon = PackedVector2Array(-59, 234, -42, 217, 37, 255, -24, 237)
+
+[node name="WorkPlace" type="Area2D" parent="MechanicShopInterior"]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MechanicShopInterior/WorkPlace"]
+polygon = PackedVector2Array(-247, 96, -208, 71, -243, 26, -332, 72)
+
+[node name="Exit" type="Area2D" parent="MechanicShopInterior"]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MechanicShopInterior/Exit"]
+polygon = PackedVector2Array(-268, 345, -268, 364, -54, 366, -54, 347)
+
+[node name="Player" parent="." instance=ExtResource("2_qlrsb")]
+position = Vector2(432.99997, 635)
+scale = Vector2(0.72, 0.72)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(1.388889, -106.94445)
+zoom = Vector2(1.585, 1.585)
+
+[node name="HudMoney" type="Sprite2D" parent="Player"]
+position = Vector2(-386.1112, 98.611084)
+scale = Vector2(1.035, 1.035)
+texture = ExtResource("3_dfvdi")
+script = ExtResource("4_x4jcy")
+
+[node name="Money" type="Label" parent="Player/HudMoney"]
+anchors_preset = -1
+anchor_left = -0.06723217
+anchor_top = -0.027320823
+anchor_right = -0.06723217
+anchor_bottom = -0.027320823
+offset_left = -16.20642
+offset_top = -38.30191
+offset_right = 80.83496
+offset_bottom = 21.69809
+scale = Vector2(1.035, 1.035)
+label_settings = SubResource("LabelSettings_w6pvp")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="MechanicShopInterior/WorkPlace" to="." method="_on_work_place_body_entered"]
+[connection signal="body_exited" from="MechanicShopInterior/WorkPlace" to="." method="_on_work_place_body_exited"]
+[connection signal="body_entered" from="MechanicShopInterior/Exit" to="." method="_on_exit_body_entered"]
+[connection signal="body_exited" from="MechanicShopInterior/Exit" to="." method="_on_exit_body_exited"]

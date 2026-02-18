@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bu5rlglo0iaxc"]
+
+[node name="Work" type="Node2D"]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+offset_right = 1156.0
+offset_bottom = 651.0
