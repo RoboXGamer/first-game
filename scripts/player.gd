@@ -12,11 +12,9 @@ func set_interact(new_value):
 		$ButtonPrompt.hide()
 	Interact_Node = new_value
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.is_action_pressed("Interact") and Interact_Node!=null:
-		Global.player_pos=global_position
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event is InputEventKey and event.is_action_pressed("Interact") and Interact_Node!=null:
 
-var Money = 1500
 
 
 @export var move_speed = 85.0

@@ -13,6 +13,7 @@ font_size = 43
 font_color = Color(0, 0, 0, 1)
 
 [node name="WorkshopInterior" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_x4jcy")
 
 [node name="MechanicShopInterior" type="Sprite2D" parent="."]
@@ -69,6 +70,9 @@ label_settings = SubResource("LabelSettings_w6pvp")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="WorkshopInteriorSpawn" type="Marker2D" parent="."]
+position = Vector2(388, 395)
 
 [connection signal="body_entered" from="MechanicShopInterior/WorkPlace" to="." method="_on_work_place_body_entered"]
 [connection signal="body_exited" from="MechanicShopInterior/WorkPlace" to="." method="_on_work_place_body_exited"]
