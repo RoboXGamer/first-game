@@ -1645,3 +1645,5 @@ z_as_relative = false
 position = Vector2(0, -177.845)
 scale = Vector2(0.66, 0.66)
 texture = ExtResource("10_y4r1p")
+
+[node name="Camera2D" type="Camera2D" parent="."]

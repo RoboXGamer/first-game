@@ -5,6 +5,7 @@ class_name PlayerController
 var Interact_Node = null : set = set_interact
 func _ready():
 	set_interact(null)
+	$Camera2D.zoom = camera_zoom
 func set_interact(new_value):
 	if new_value != null:
 		$ButtonPrompt.show()
@@ -20,6 +21,7 @@ var Money = 1500
 
 
 @export var move_speed = 85.0
+@export var camera_zoom = Vector2(1,1)
 
 var direction : Vector2
 

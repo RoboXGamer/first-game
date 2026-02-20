@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://rfupnykxb4yc"]
+[gd_scene load_steps=12 format=4 uid="uid://rfupnykxb4yc"]
 
 [ext_resource type="Script" uid="uid://dau88yddrtqcv" path="res://scripts/Outside.gd" id="1_eb6dy"]
 [ext_resource type="TileSet" uid="uid://jigweqm67rt8" path="res://scenes/main.tres" id="1_o5qli"]
@@ -6,17 +6,10 @@
 [ext_resource type="Script" uid="uid://baw0njpgadrxc" path="res://scripts/building.gd" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dvli146bs7cxm" path="res://scenes/player.tscn" id="3_sugp2"]
 [ext_resource type="Texture2D" uid="uid://y6t2vfpkqfq5" path="res://assets/buildings/House_1.png" id="3_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://nssr3yimb511" path="res://assets/Sprites/HUD_Money.png" id="3_ya4ey"]
-[ext_resource type="Script" uid="uid://ctrvqlyscsjmx" path="res://scripts/hud_money.gd" id="4_eb6dy"]
-[ext_resource type="FontFile" uid="uid://2mjcg45nn2i" path="res://assets/Fonts/Jersey10-Regular.ttf" id="5_trceg"]
 [ext_resource type="Script" uid="uid://n0heg25ptlhl" path="res://scripts/workshop.gd" id="6_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://df5iknfa8vjxo" path="res://assets/buildings/Mechanic_Shop.png" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://ckycf8ellfhu4" path="res://scenes/workshop_interior.tscn" id="7_tipki"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_a8y0u"]
-font = ExtResource("5_trceg")
-font_size = 43
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://bp61k3a28yyv3" path="res://scenes/UI.tscn" id="7_trceg"]
 
 [sub_resource type="GDScript" id="GDScript_tbgi4"]
 script/source = "extends Node2D
@@ -47,31 +40,7 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(4008, 2189)
 scale = Vector2(0.2, 0.2)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2.37, 2.37)
-
-[node name="HudMoney2" type="Sprite2D" parent="Player"]
-position = Vector2(-1001.0001, 574)
-scale = Vector2(1.26, 1.26)
-texture = ExtResource("3_ya4ey")
-script = ExtResource("4_eb6dy")
-
-[node name="Money" type="Label" parent="Player/HudMoney2"]
-anchors_preset = -1
-anchor_left = -0.06723217
-anchor_top = -0.027320823
-anchor_right = -0.06723217
-anchor_bottom = -0.027320823
-offset_left = -16.20642
-offset_top = -38.30191
-offset_right = 80.83496
-offset_bottom = 21.69809
-scale = Vector2(1.26, 1.26)
-label_settings = SubResource("LabelSettings_a8y0u")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+camera_zoom = Vector2(2, 2)
 
 [node name="Infrastucture" type="Node2D" parent="."]
 z_index = 1
@@ -146,6 +115,17 @@ collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infrastucture/Workshop/Entrance"]
 polygon = PackedVector2Array(4538, 2510, 4628, 2553, 4636, 2530, 4574, 2497)
+
+[node name="HUD Canvas Layer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="HUD Canvas Layer" instance=ExtResource("7_trceg")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_top = -110.0
+offset_bottom = -110.0
+grow_horizontal = 1
+grow_vertical = 0
 
 [connection signal="body_entered" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank" method="_on_area_entered"]
 [connection signal="body_exited" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank" method="_on_area_exited"]
