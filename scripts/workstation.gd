@@ -15,10 +15,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if assemble and repair and  inspect and is_holding:
+		$RepairProgress.show()
 		Hold_Timer+= delta
+		$RepairProgress.value = Hold_Timer/ Required_Time * 100
 		if Hold_Timer >= Required_Time:
 			_on_task_complete()
 	else:
+		$RepairProgress.hide()
 		Hold_Timer = 0.0
 	
 	
@@ -29,8 +32,7 @@ func _on_task_complete():
 	repair = false
 	inspect = false
 	Global.Money += 200
-	
-
+	print(Global.Money)
 
 func _on_exit_pressed() -> void:
 	Global.last_door_id = "WorkshopInteriorSpawn"

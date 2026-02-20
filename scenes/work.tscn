@@ -1,11 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu5rlglo0iaxc"]
+[gd_scene load_steps=13 format=3 uid="uid://bu5rlglo0iaxc"]
 
 [ext_resource type="Script" uid="uid://h7us6rx5g7l1" path="res://scripts/workstation.gd" id="1_i7b8v"]
 [ext_resource type="Texture2D" uid="uid://duovfgdywbp4v" path="res://assets/Sprites/Workstation.jpeg" id="1_tmuha"]
 [ext_resource type="Texture2D" uid="uid://c76v3ggxrm3ke" path="res://assets/Sprites/Workstation_Exit.png" id="2_rabhu"]
 [ext_resource type="Texture2D" uid="uid://t0emnb3y2lkd" path="res://assets/Sprites/Workstation_Repair.png" id="3_eastt"]
 [ext_resource type="Texture2D" uid="uid://5wk8tqi7jqpd" path="res://assets/Sprites/Workstation_Inspect.png" id="4_6qc1p"]
+[ext_resource type="Texture2D" uid="uid://bou6ut0y3is7i" path="res://assets/Sprites/Workstation_Inspect_Hover.png" id="5_f1c53"]
 [ext_resource type="Texture2D" uid="uid://cqc4bpf1j638e" path="res://assets/Sprites/Workstation_Assemble.png" id="5_wbtw0"]
+[ext_resource type="Texture2D" uid="uid://c6h1ax1010acp" path="res://assets/Sprites/Workstation_Exit_Hover.png" id="7_6qc1p"]
+[ext_resource type="Texture2D" uid="uid://bvhn7fx1m1oci" path="res://assets/Sprites/texture.png" id="9_i6frl"]
+[ext_resource type="Texture2D" uid="uid://ceclkbyml8ntt" path="res://assets/Sprites/texture-over.png" id="10_aso24"]
+
+[sub_resource type="Gradient" id="Gradient_57ibl"]
+offsets = PackedFloat32Array(0, 0.50678736, 1)
+colors = PackedColorArray(0.9361722, 0.9609375, 0.12387085, 1, 0.93279684, 0.94140625, 0.20960999, 1, 0.9589648, 0.97265625, 0.20137024, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jusjj"]
+gradient = SubResource("Gradient_57ibl")
 
 [node name="Work" type="Node2D"]
 script = ExtResource("1_i7b8v")
@@ -41,6 +52,7 @@ offset_top = 231.0
 offset_right = 242.0
 offset_bottom = 304.0
 texture_normal = ExtResource("4_6qc1p")
+texture_hover = ExtResource("5_f1c53")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -61,8 +73,23 @@ offset_top = 308.0
 offset_right = 1114.0
 offset_bottom = 389.0
 texture_normal = ExtResource("2_rabhu")
+texture_hover = ExtResource("7_6qc1p")
 ignore_texture_size = true
 stretch_mode = 4
+
+[node name="RepairProgress" type="TextureProgressBar" parent="."]
+offset_left = 512.0
+offset_top = 583.0
+offset_right = 656.0
+offset_bottom = 623.0
+nine_patch_stretch = true
+stretch_margin_left = 16
+stretch_margin_top = 16
+stretch_margin_right = 16
+stretch_margin_bottom = 16
+texture_under = ExtResource("9_i6frl")
+texture_over = ExtResource("10_aso24")
+texture_progress = SubResource("GradientTexture1D_jusjj")
 
 [connection signal="button_down" from="CenterContainer/WorkController/Repair" to="." method="_on_repair_button_down"]
 [connection signal="button_up" from="CenterContainer/WorkController/Repair" to="." method="_on_repair_button_up"]
