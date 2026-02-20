@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://byxhixygsqqp3" path="res://assets/Sprites/Menu_Exit_Hover.png" id="10_7b55j"]
 
 [node name="Main Menu" type="Node2D"]
+texture_filter = 1
 scale = Vector2(0.89, 0.89)
 script = ExtResource("1_l6cm7")
 

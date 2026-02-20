@@ -27,6 +27,7 @@ func _process(_delta: float) -> void:
 
 [node name="Map" type="Node2D"]
 y_sort_enabled = true
+texture_filter = 1
 script = ExtResource("1_eb6dy")
 metadata/_edit_horizontal_guides_ = [2.0]
 
@@ -126,6 +127,9 @@ offset_top = -110.0
 offset_bottom = -110.0
 grow_horizontal = 1
 grow_vertical = 0
+
+[node name="MechanicShopSpawn" type="Marker2D" parent="Infrastucture/Workshop"]
+position = Vector2(4582, 2524)
 
 [connection signal="body_entered" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank" method="_on_area_entered"]
 [connection signal="body_exited" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank" method="_on_area_exited"]

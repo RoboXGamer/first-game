@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bp61k3a28yyv3" path="res://scenes/UI.tscn" id="4_1vmwc"]
 
 [node name="WorkshopInterior" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_x4jcy")
 
 [node name="MechanicShopInterior" type="Sprite2D" parent="."]
@@ -49,6 +50,9 @@ offset_top = -110.0
 offset_bottom = -110.0
 grow_horizontal = 1
 grow_vertical = 0
+
+[node name="WorkshopInteriorSpawn" type="Marker2D" parent="."]
+position = Vector2(388, 395)
 
 [connection signal="body_entered" from="MechanicShopInterior/WorkPlace" to="." method="_on_work_place_body_entered"]
 [connection signal="body_exited" from="MechanicShopInterior/WorkPlace" to="." method="_on_work_place_body_exited"]

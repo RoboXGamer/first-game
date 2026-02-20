@@ -1,7 +1,72 @@
-[gd_scene format=3 uid="uid://bu5rlglo0iaxc"]
+[gd_scene load_steps=7 format=3 uid="uid://bu5rlglo0iaxc"]
+
+[ext_resource type="Script" uid="uid://h7us6rx5g7l1" path="res://scripts/workstation.gd" id="1_i7b8v"]
+[ext_resource type="Texture2D" uid="uid://duovfgdywbp4v" path="res://assets/Sprites/Workstation.jpeg" id="1_tmuha"]
+[ext_resource type="Texture2D" uid="uid://c76v3ggxrm3ke" path="res://assets/Sprites/Workstation_Exit.png" id="2_rabhu"]
+[ext_resource type="Texture2D" uid="uid://t0emnb3y2lkd" path="res://assets/Sprites/Workstation_Repair.png" id="3_eastt"]
+[ext_resource type="Texture2D" uid="uid://5wk8tqi7jqpd" path="res://assets/Sprites/Workstation_Inspect.png" id="4_6qc1p"]
+[ext_resource type="Texture2D" uid="uid://cqc4bpf1j638e" path="res://assets/Sprites/Workstation_Assemble.png" id="5_wbtw0"]
 
 [node name="Work" type="Node2D"]
+script = ExtResource("1_i7b8v")
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
-offset_right = 1156.0
-offset_bottom = 651.0
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1415.0
+offset_bottom = 659.0
+texture = ExtResource("1_tmuha")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WorkController" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Repair" type="TextureButton" parent="CenterContainer/WorkController"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 133.0
+offset_right = 233.0
+offset_bottom = 202.0
+texture_normal = ExtResource("3_eastt")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Inspect" type="TextureButton" parent="CenterContainer/WorkController"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 231.0
+offset_right = 242.0
+offset_bottom = 304.0
+texture_normal = ExtResource("4_6qc1p")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Assemble" type="TextureButton" parent="CenterContainer/WorkController"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 335.0
+offset_right = 236.0
+offset_bottom = 413.0
+texture_normal = ExtResource("5_wbtw0")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Exit" type="TextureButton" parent="CenterContainer/WorkController"]
+layout_mode = 0
+offset_left = 890.0
+offset_top = 308.0
+offset_right = 1114.0
+offset_bottom = 389.0
+texture_normal = ExtResource("2_rabhu")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="button_down" from="CenterContainer/WorkController/Repair" to="." method="_on_repair_button_down"]
+[connection signal="button_up" from="CenterContainer/WorkController/Repair" to="." method="_on_repair_button_up"]
+[connection signal="pressed" from="CenterContainer/WorkController/Repair" to="." method="_on_repair_pressed"]
+[connection signal="pressed" from="CenterContainer/WorkController/Inspect" to="." method="_on_inspect_pressed"]
+[connection signal="pressed" from="CenterContainer/WorkController/Assemble" to="." method="_on_assemble_pressed"]
+[connection signal="pressed" from="CenterContainer/WorkController/Exit" to="." method="_on_exit_pressed"]
