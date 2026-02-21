@@ -1,29 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://rfupnykxb4yc"]
+[gd_scene load_steps=9 format=4 uid="uid://rfupnykxb4yc"]
 
 [ext_resource type="Script" uid="uid://dau88yddrtqcv" path="res://scripts/Outside.gd" id="1_eb6dy"]
 [ext_resource type="TileSet" uid="uid://jigweqm67rt8" path="res://scenes/main.tres" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://dbxl1raqjo2xi" path="res://assets/buildings/Bank.png" id="2_jyhfs"]
-[ext_resource type="Script" uid="uid://baw0njpgadrxc" path="res://scripts/building.gd" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dvli146bs7cxm" path="res://scenes/player.tscn" id="3_sugp2"]
 [ext_resource type="Texture2D" uid="uid://y6t2vfpkqfq5" path="res://assets/buildings/House_1.png" id="3_tbgi4"]
-[ext_resource type="Script" uid="uid://n0heg25ptlhl" path="res://scripts/workshop.gd" id="6_o6xl0"]
+[ext_resource type="Script" uid="uid://cgvx4qiwouyft" path="res://scripts/Entrance.gd" id="5_choun"]
 [ext_resource type="Texture2D" uid="uid://df5iknfa8vjxo" path="res://assets/buildings/Mechanic_Shop.png" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://ckycf8ellfhu4" path="res://scenes/workshop_interior.tscn" id="7_tipki"]
 [ext_resource type="PackedScene" uid="uid://bp61k3a28yyv3" path="res://scenes/UI.tscn" id="7_trceg"]
-
-[sub_resource type="GDScript" id="GDScript_tbgi4"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-"
 
 [node name="Map" type="Node2D"]
 y_sort_enabled = true
@@ -48,7 +32,6 @@ z_index = 1
 y_sort_enabled = true
 
 [node name="Bank" type="Node2D" parent="Infrastucture"]
-script = ExtResource("2_tbgi4")
 
 [node name="Bank" type="Sprite2D" parent="Infrastucture/Bank"]
 z_index = 2
@@ -64,15 +47,20 @@ position = Vector2(6, -4)
 polygon = PackedVector2Array(4550, 1922, 4692, 1996, 4807, 1926, 4688, 1856)
 
 [node name="Entrance" type="Area2D" parent="Infrastucture/Bank"]
-visible = false
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("5_choun")
+target_scene = "uid://efn5yw87albu"
+spawn_location_id = "BankInterior"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infrastucture/Bank/Entrance"]
-polygon = PackedVector2Array(4587, 1943, 4647, 1976, 4680, 1955, 4615, 1920)
+polygon = PackedVector2Array(4569, 1945, 4635, 1985, 4680, 1955, 4615, 1920)
+
+[node name="BankSpawn" type="Marker2D" parent="Infrastucture/Bank"]
+position = Vector2(4607, 1962)
 
 [node name="House1" type="Node2D" parent="Infrastucture"]
-script = SubResource("GDScript_tbgi4")
+position = Vector2(6, 0)
 
 [node name="House1" type="Sprite2D" parent="Infrastucture/House1"]
 z_index = 2
@@ -90,13 +78,14 @@ visible = false
 position = Vector2(0, 1)
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("5_choun")
+target_scene = "uid://bu5rlglo0iaxc"
+spawn_location_id = "House1"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infrastucture/House1/Entrance"]
 polygon = PackedVector2Array(4229, 2356, 4276, 2381, 4291, 2356, 4259, 2342)
 
 [node name="Workshop" type="Node2D" parent="Infrastucture"]
-script = ExtResource("6_o6xl0")
-workshop_interioir = ExtResource("7_tipki")
 
 [node name="Sprite2D" type="Sprite2D" parent="Infrastucture/Workshop"]
 position = Vector2(4619, 2475)
@@ -113,9 +102,15 @@ polygon = PackedVector2Array(4567, 2510, 4653, 2551, 4693, 2552, 4724, 2555, 475
 visible = false
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("5_choun")
+target_scene = "uid://ckycf8ellfhu4"
+spawn_location_id = "MechanicShopInterior"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infrastucture/Workshop/Entrance"]
 polygon = PackedVector2Array(4538, 2510, 4628, 2553, 4636, 2530, 4574, 2497)
+
+[node name="MechanicShop" type="Marker2D" parent="Infrastucture/Workshop"]
+position = Vector2(4582, 2524)
 
 [node name="HUD Canvas Layer" type="CanvasLayer" parent="."]
 
@@ -128,14 +123,11 @@ offset_bottom = -110.0
 grow_horizontal = 1
 grow_vertical = 0
 
-[node name="MechanicShopSpawn" type="Marker2D" parent="Infrastucture/Workshop"]
-position = Vector2(4582, 2524)
-
 [connection signal="body_entered" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank" method="_on_area_entered"]
+[connection signal="body_entered" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank/Entrance" method="_on_body_entered"]
 [connection signal="body_exited" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank" method="_on_area_exited"]
-[connection signal="body_entered" from="Infrastucture/House1/Entrance" to="Infrastucture/Bank" method="_on_area_entered"]
-[connection signal="body_exited" from="Infrastucture/House1/Entrance" to="Infrastucture/Bank" method="_on_area_exited"]
-[connection signal="body_entered" from="Infrastucture/Workshop/Entrance" to="Infrastucture/Bank" method="_on_area_entered"]
-[connection signal="body_entered" from="Infrastucture/Workshop/Entrance" to="Infrastucture/Workshop" method="_on_enter"]
-[connection signal="body_exited" from="Infrastucture/Workshop/Entrance" to="Infrastucture/Bank" method="_on_area_exited"]
-[connection signal="body_exited" from="Infrastucture/Workshop/Entrance" to="Infrastucture/Workshop" method="_on_exit"]
+[connection signal="body_exited" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank/Entrance" method="_on_body_exited"]
+[connection signal="body_entered" from="Infrastucture/House1/Entrance" to="Infrastucture/House1/Entrance" method="_on_body_entered"]
+[connection signal="body_exited" from="Infrastucture/House1/Entrance" to="Infrastucture/House1/Entrance" method="_on_body_exited"]
+[connection signal="body_entered" from="Infrastucture/Workshop/Entrance" to="Infrastucture/Workshop/Entrance" method="_on_body_entered"]
+[connection signal="body_exited" from="Infrastucture/Workshop/Entrance" to="Infrastucture/Workshop/Entrance" method="_on_body_exited"]

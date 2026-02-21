@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckycf8ellfhu4"]
+[gd_scene load_steps=6 format=3 uid="uid://ckycf8ellfhu4"]
 
+[ext_resource type="Script" uid="uid://dau88yddrtqcv" path="res://scripts/Outside.gd" id="1_dfvdi"]
 [ext_resource type="Texture2D" uid="uid://dxeqjy6jqcywy" path="res://assets/buildings/mechanic_shop_interior.png" id="1_ogx1y"]
-[ext_resource type="Script" uid="uid://dd2g0akt3lit4" path="res://scripts/workshop_interior.gd" id="1_x4jcy"]
 [ext_resource type="PackedScene" uid="uid://dvli146bs7cxm" path="res://scenes/player.tscn" id="2_qlrsb"]
+[ext_resource type="Script" uid="uid://cgvx4qiwouyft" path="res://scripts/Entrance.gd" id="3_dfvdi"]
 [ext_resource type="PackedScene" uid="uid://bp61k3a28yyv3" path="res://scenes/UI.tscn" id="4_1vmwc"]
 
 [node name="WorkshopInterior" type="Node2D"]
 texture_filter = 1
-script = ExtResource("1_x4jcy")
+script = ExtResource("1_dfvdi")
 
 [node name="MechanicShopInterior" type="Sprite2D" parent="."]
 position = Vector2(618, 313)
@@ -24,12 +25,18 @@ polygon = PackedVector2Array(-59, 234, -42, 217, 37, 255, -24, 237)
 
 [node name="WorkPlace" type="Area2D" parent="MechanicShopInterior"]
 collision_mask = 2
+script = ExtResource("3_dfvdi")
+target_scene = "uid://bu5rlglo0iaxc"
+spawn_location_id = "Work"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MechanicShopInterior/WorkPlace"]
 polygon = PackedVector2Array(-247, 96, -208, 71, -243, 26, -332, 72)
 
 [node name="Exit" type="Area2D" parent="MechanicShopInterior"]
 collision_mask = 2
+script = ExtResource("3_dfvdi")
+target_scene = "uid://rfupnykxb4yc"
+spawn_location_id = "MechanicShop"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MechanicShopInterior/Exit"]
 polygon = PackedVector2Array(-268, 345, -268, 364, -54, 366, -54, 347)
@@ -37,7 +44,7 @@ polygon = PackedVector2Array(-268, 345, -268, 364, -54, 366, -54, 347)
 [node name="Player" parent="." instance=ExtResource("2_qlrsb")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(430, 593)
+position = Vector2(424, 603)
 scale = Vector2(0.5, 0.5)
 
 [node name="HUD Canvas Layer" type="CanvasLayer" parent="."]
@@ -52,9 +59,9 @@ grow_horizontal = 1
 grow_vertical = 0
 
 [node name="WorkshopInteriorSpawn" type="Marker2D" parent="."]
-position = Vector2(388, 395)
+position = Vector2(382, 410)
 
-[connection signal="body_entered" from="MechanicShopInterior/WorkPlace" to="." method="_on_work_place_body_entered"]
-[connection signal="body_exited" from="MechanicShopInterior/WorkPlace" to="." method="_on_work_place_body_exited"]
-[connection signal="body_entered" from="MechanicShopInterior/Exit" to="." method="_on_exit_body_entered"]
-[connection signal="body_exited" from="MechanicShopInterior/Exit" to="." method="_on_exit_body_exited"]
+[connection signal="body_entered" from="MechanicShopInterior/WorkPlace" to="MechanicShopInterior/WorkPlace" method="_on_body_entered"]
+[connection signal="body_exited" from="MechanicShopInterior/WorkPlace" to="MechanicShopInterior/WorkPlace" method="_on_body_exited"]
+[connection signal="body_entered" from="MechanicShopInterior/Exit" to="MechanicShopInterior/Exit" method="_on_body_entered"]
+[connection signal="body_exited" from="MechanicShopInterior/Exit" to="MechanicShopInterior/Exit" method="_on_body_exited"]

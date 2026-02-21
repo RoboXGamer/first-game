@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqc4bpf1j638e"
-path="res://.godot/imported/Workstation_Assemble.png-330d546f0a3940b12a22eed0307b800b.ctex"
+uid="uid://cp8fcf1ynqhye"
+path="res://.godot/imported/Workstation_Buttons_Hover.png-df403f4364ad39a2d86ee2295f524674.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Workstation_Assemble.png"
-dest_files=["res://.godot/imported/Workstation_Assemble.png-330d546f0a3940b12a22eed0307b800b.ctex"]
+source_file="res://assets/Sprites/Workstation_Buttons_Hover.png"
+dest_files=["res://.godot/imported/Workstation_Buttons_Hover.png-df403f4364ad39a2d86ee2295f524674.ctex"]
 
 [params]
 

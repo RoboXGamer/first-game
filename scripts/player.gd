@@ -2,16 +2,17 @@ extends CharacterBody2D
 class_name PlayerController
 
 # Interact Prompt 
-var Interact_Node = null : set = set_interact
+var Interact_Node = null:
+	set(new_value):
+		Interact_Node = new_value
+		if Interact_Node != null:
+			$ButtonPrompt.show()
+		else:
+			$ButtonPrompt.hide()
 func _ready():
-	set_interact(null)
+	Interact_Node = null
 	$Camera2D.zoom = camera_zoom
-func set_interact(new_value):
-	if new_value != null:
-		$ButtonPrompt.show()
-	else:
-		$ButtonPrompt.hide()
-	Interact_Node = new_value
+
 
 #func _unhandled_input(event: InputEvent) -> void:
 	#if event is InputEventKey and event.is_action_pressed("Interact") and Interact_Node!=null:

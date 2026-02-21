@@ -32,7 +32,6 @@ func _on_task_complete():
 	repair = false
 	inspect = false
 	Global.Money += 200
-	print(Global.Money)
 
 func _on_exit_pressed() -> void:
 	Global.last_door_id = "WorkshopInteriorSpawn"
@@ -40,7 +39,6 @@ func _on_exit_pressed() -> void:
 
 
 func _on_inspect_pressed() -> void:
-	print("Inspected")
 	inspect = true
 
 
@@ -49,7 +47,6 @@ func _on_repair_pressed() -> void:
 
 
 func _on_assemble_pressed() -> void:
-	print("assembled")
 	assemble = true
 
 

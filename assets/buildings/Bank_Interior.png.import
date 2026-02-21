@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5wk8tqi7jqpd"
-path="res://.godot/imported/Workstation_Inspect.png-7986021d76cd2f14b2f3a66d9d80bf79.ctex"
+uid="uid://8pfxnqqfu5x7"
+path="res://.godot/imported/Bank_Interior.png-d0e2c08ad619b76cbab8126368484ee0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Workstation_Inspect.png"
-dest_files=["res://.godot/imported/Workstation_Inspect.png-7986021d76cd2f14b2f3a66d9d80bf79.ctex"]
+source_file="res://assets/buildings/Bank_Interior.png"
+dest_files=["res://.godot/imported/Bank_Interior.png-d0e2c08ad619b76cbab8126368484ee0.ctex"]
 
 [params]
 

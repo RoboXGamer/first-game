@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://efn5yw87albu"]
+
+[ext_resource type="Script" uid="uid://dau88yddrtqcv" path="res://scripts/Outside.gd" id="1_cahgk"]
+[ext_resource type="Texture2D" uid="uid://c8gwgnqi0km1h" path="res://assets/buildings/Bank_Waiting_Area.png" id="1_ce5ev"]
+[ext_resource type="PackedScene" uid="uid://dvli146bs7cxm" path="res://scenes/player.tscn" id="2_4bauo"]
+[ext_resource type="Script" uid="uid://cgvx4qiwouyft" path="res://scripts/Entrance.gd" id="2_cahgk"]
+[ext_resource type="PackedScene" uid="uid://bp61k3a28yyv3" path="res://scenes/UI.tscn" id="3_cahgk"]
+
+[node name="Bank_Waiting_Room" type="Node2D"]
+script = ExtResource("1_cahgk")
+
+[node name="BankWaitingArea" type="Sprite2D" parent="."]
+position = Vector2(626, 347)
+scale = Vector2(0.58, 0.58)
+texture = ExtResource("1_ce5ev")
+
+[node name="Collisions" type="StaticBody2D" parent="BankWaitingArea"]
+
+[node name="Walls" type="CollisionPolygon2D" parent="BankWaitingArea/Collisions"]
+build_mode = 1
+polygon = PackedVector2Array(825.8622, 332.75867, 777.5863, 222.41382, 846.5519, 165.51727, 358.62073, -115.51727, 0, -318.96558, -117.24133, -212.069, -305.17242, -131.03452, -443.10345, -74.13794, -544.8276, -22.413818, -634.4828, 60.34485, -625.86206, 112.06897, -739.6552, 218.96552, -739.6552, 270.6897, -760.34485, 344.82764, -751.7242, 389.6552, -3.4482422, 775.8621, -60.344788, 710.3449, -36.20691, 632.7587, 74.13794, 572.4139, 191.3794, 503.4483, 244.82764, 432.75873, 374.13806, 408.62073, 374.13806, 486.20697, 418.96558, 527.58624, 431.03455, 486.20697)
+
+[node name="Exit" type="Area2D" parent="BankWaitingArea"]
+collision_mask = 2
+script = ExtResource("2_cahgk")
+target_scene = "uid://rfupnykxb4yc"
+spawn_location_id = "BankSpawn"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BankWaitingArea/Exit"]
+polygon = PackedVector2Array(529.3104, 348.27588, 593.1035, 429.31036, 756.8967, 336.2069, 675.8622, 246.55176)
+
+[node name="Enter" type="Area2D" parent="BankWaitingArea"]
+position = Vector2(-3.4482763, 0)
+collision_mask = 2
+script = ExtResource("2_cahgk")
+target_scene = "uid://4m5wex4ttyuk"
+spawn_location_id = "BankIjnterior"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BankWaitingArea/Enter"]
+polygon = PackedVector2Array(74.13794, -127.58624, 29.310425, -79.31036, 122.41382, 3.4482422, 239.65527, -46.551758)
+
+[node name="WaitingRoomSpawn" type="Marker2D" parent="BankWaitingArea"]
+position = Vector2(84.48279, -13.793091)
+scale = Vector2(1.7241381, 1.7241381)
+
+[node name="Player" parent="." instance=ExtResource("2_4bauo")]
+position = Vector2(957, 519)
+
+[node name="HUD Canvas Layer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="HUD Canvas Layer" instance=ExtResource("3_cahgk")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_top = -110.0
+offset_bottom = -110.0
+grow_horizontal = 1
+grow_vertical = 0
+
+[connection signal="body_entered" from="BankWaitingArea/Exit" to="BankWaitingArea/Exit" method="_on_body_entered"]
+[connection signal="body_exited" from="BankWaitingArea/Exit" to="BankWaitingArea/Exit" method="_on_body_exited"]
+[connection signal="body_entered" from="BankWaitingArea/Enter" to="BankWaitingArea/Enter" method="_on_body_entered"]
+[connection signal="body_exited" from="BankWaitingArea/Enter" to="BankWaitingArea/Enter" method="_on_body_exited"]

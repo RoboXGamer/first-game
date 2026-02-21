@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t0emnb3y2lkd"
-path="res://.godot/imported/Workstation_Repair.png-d3d33889ebcc04b05403630d4ca5764d.ctex"
+uid="uid://yte5kkymjfhh"
+path="res://.godot/imported/Workstation_Buttons_Pressed.png-7f783a122f8ac5389ae98d736f1b6163.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Workstation_Repair.png"
-dest_files=["res://.godot/imported/Workstation_Repair.png-d3d33889ebcc04b05403630d4ca5764d.ctex"]
+source_file="res://assets/Sprites/Workstation_Buttons_Pressed.png"
+dest_files=["res://.godot/imported/Workstation_Buttons_Pressed.png-7f783a122f8ac5389ae98d736f1b6163.ctex"]
 
 [params]
 

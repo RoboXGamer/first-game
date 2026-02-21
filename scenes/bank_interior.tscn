@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://4m5wex4ttyuk"]
+
+[ext_resource type="Script" uid="uid://dau88yddrtqcv" path="res://scripts/Outside.gd" id="1_0pk8r"]
+[ext_resource type="Texture2D" uid="uid://8pfxnqqfu5x7" path="res://assets/buildings/Bank_Interior.png" id="1_h7tem"]
+[ext_resource type="Script" uid="uid://cgvx4qiwouyft" path="res://scripts/Entrance.gd" id="2_0pk8r"]
+[ext_resource type="PackedScene" uid="uid://dvli146bs7cxm" path="res://scenes/player.tscn" id="2_uu7by"]
+[ext_resource type="PackedScene" uid="uid://bp61k3a28yyv3" path="res://scenes/UI.tscn" id="3_0pk8r"]
+
+[node name="Bank_Interior" type="Node2D"]
+script = ExtResource("1_0pk8r")
+
+[node name="BankInterior" type="Sprite2D" parent="."]
+position = Vector2(589, 352)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("1_h7tem")
+
+[node name="Collisions" type="StaticBody2D" parent="BankInterior"]
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BankInterior/Collisions"]
+build_mode = 1
+polygon = PackedVector2Array(-627.19995, 406.39996, 24, 764.7999, 132.79999, 702.4, 62.399963, 590.4, 380.8, 419.2, 492.8, 348.8, 518.39996, 252.79999, 451.2, 212.79999, 348.8, 129.60004, 331.2, 83.20001, 431.99994, -3.2000122, 359.99994, -127.99997, 244.79999, -174.39996, 94.39996, -198.39996, -38.400024, -94.399994, -150.40002, -32, -286.40002, 75.20001, -481.59998, 145.60004, -656, 249.59998, -788.8, 328)
+
+[node name="Exit" type="Area2D" parent="BankInterior"]
+collision_mask = 2
+script = ExtResource("2_0pk8r")
+target_scene = "uid://efn5yw87albu"
+spawn_location_id = "WaitingRoomSpawn"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BankInterior/Exit"]
+polygon = PackedVector2Array(-585.6, 468.79993, -515.19995, 416, -273.59998, 544, -332.8, 627.19995)
+
+[node name="ATM" type="Area2D" parent="BankInterior"]
+collision_mask = 2
+script = ExtResource("2_0pk8r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BankInterior/ATM"]
+polygon = PackedVector2Array(-224, 224, -126.400024, 308.8, 80, 172.79999, -40, 102.400024)
+
+[node name="Player" parent="." instance=ExtResource("2_uu7by")]
+position = Vector2(337, 668)
+
+[node name="HUD Canvas Layer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="HUD Canvas Layer" instance=ExtResource("3_0pk8r")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_top = -110.0
+offset_bottom = -110.0
+grow_horizontal = 1
+grow_vertical = 0
+
+[node name="WithdrawSpawn" type="Marker2D" parent="."]
+position = Vector2(537, 472)
+
+[connection signal="body_entered" from="BankInterior/Exit" to="BankInterior/Exit" method="_on_body_entered"]
+[connection signal="body_exited" from="BankInterior/Exit" to="BankInterior/Exit" method="_on_body_exited"]
+[connection signal="body_entered" from="BankInterior/ATM" to="BankInterior/ATM" method="_on_body_entered"]
+[connection signal="body_exited" from="BankInterior/ATM" to="BankInterior/ATM" method="_on_body_exited"]
