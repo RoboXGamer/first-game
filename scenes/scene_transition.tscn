@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbqtt6vhcu4r6"]
+[gd_scene load_steps=16 format=3 uid="uid://dbqtt6vhcu4r6"]
 
 [ext_resource type="Script" uid="uid://bqd1a4flpaou5" path="res://scripts/scene_transition.gd" id="1_0wykx"]
+[ext_resource type="Texture2D" uid="uid://bqyqdot1yyudc" path="res://assets/Sprites/Loading.png" id="2_rujfs"]
 
 [sub_resource type="Animation" id="Animation_rujfs"]
 resource_name = "Fade_In"
@@ -17,21 +18,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_2sgj6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_hgfgv"]
@@ -51,12 +37,91 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_2sgj6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_85h84"]
 _data = {
 &"Fade_In": SubResource("Animation_rujfs"),
 &"Fade_Out": SubResource("Animation_hgfgv"),
 &"RESET": SubResource("Animation_2sgj6")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sgj6"]
+atlas = ExtResource("2_rujfs")
+region = Rect2(0, 0, 92, 91)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgfgv"]
+atlas = ExtResource("2_rujfs")
+region = Rect2(136, 0, 92, 91)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85h84"]
+atlas = ExtResource("2_rujfs")
+region = Rect2(0, 136, 92, 91)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooyqd"]
+atlas = ExtResource("2_rujfs")
+region = Rect2(136, 136, 92, 91)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_non66"]
+atlas = ExtResource("2_rujfs")
+region = Rect2(0, 272, 92, 91)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8vuu"]
+atlas = ExtResource("2_rujfs")
+region = Rect2(136, 272, 92, 91)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5v6o"]
+atlas = ExtResource("2_rujfs")
+region = Rect2(0, 408, 92, 91)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73nkw"]
+atlas = ExtResource("2_rujfs")
+region = Rect2(136, 408, 92, 91)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4qi5g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sgj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgfgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85h84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooyqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_non66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8vuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5v6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73nkw")
+}],
+"loop": true,
+"name": &"Loading",
+"speed": 16.0
+}]
 
 [node name="Scene_Transition" type="CanvasLayer"]
 layer = 100
@@ -77,3 +142,11 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_85h84")
 }
+
+[node name="Loading" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.484375, 0.7391976)
+scale = Vector2(0.001, 0.001)
+sprite_frames = SubResource("SpriteFrames_4qi5g")
+animation = &"Loading"
+autoplay = "Loading"
+frame_progress = 0.51852876

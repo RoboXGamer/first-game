@@ -1,16 +1,20 @@
 extends CanvasLayer
 
+@onready var Loading : AnimatedSprite2D = $Loading
 @onready var color_rect: ColorRect = $ColorRect
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	color_rect.modulate.a = 0
 	color_rect.hide()
+	Loading.hide()
+	
 
 func change_scene(target_scene: String) -> void:
 	ResourceLoader.load_threaded_request(target_scene)
 	
 	color_rect.show()
+	Loading.show()
 	animation_player.play("Fade_In")
 	await animation_player.animation_finished
 	
@@ -26,3 +30,4 @@ func change_scene(target_scene: String) -> void:
 	animation_player.play("Fade_Out")
 	await animation_player.animation_finished
 	color_rect.hide()
+	Loading.hide()
