@@ -35,7 +35,7 @@ func _on_task_complete():
 
 func _on_exit_pressed() -> void:
 	Global.last_door_id = "WorkshopInteriorSpawn"
-	get_tree().change_scene_to_file("res://scenes/workshop_interior.tscn")
+	SceneTransition.change_scene("res://scenes/workshop_interior.tscn")
 
 
 func _on_inspect_pressed() -> void:

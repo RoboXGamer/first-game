@@ -9,7 +9,7 @@ func _process(_delta: float) -> void:
 	if player_in_range and Input.is_action_just_pressed("Interact"):
 		if target_scene != "":
 			Global.last_door_id = spawn_location_id 
-			get_tree().change_scene_to_file(target_scene)
+			SceneTransition.change_scene(target_scene)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerController:
