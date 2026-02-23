@@ -1,4 +1,4 @@
-[gd_scene load_steps=236 format=3 uid="uid://dvli146bs7cxm"]
+[gd_scene load_steps=243 format=3 uid="uid://dvli146bs7cxm"]
 
 [ext_resource type="Script" uid="uid://d2swjnea4cfm5" path="res://scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Script" uid="uid://dwi7lijsxayw5" path="res://scripts/animation.gd" id="2_6t5aa"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dllwr4dvvs2gt" path="res://assets/Sprites/walk_down.png" id="7_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://dljmqx2040vk5" path="res://assets/Sprites/walk_up.png" id="8_8erm5"]
 [ext_resource type="Texture2D" uid="uid://dyjjqk3e4hiue" path="res://assets/Sprites/E_Key.png" id="10_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://bafv6ijo8n8bb" path="res://assets/Sprites/Escape_background.png" id="11_jej6c"]
+[ext_resource type="Texture2D" uid="uid://xjihudg5cx5q" path="res://assets/Sprites/Escape_menu.png" id="12_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://dm6wy4js8hgo7" path="res://assets/Sprites/Escape_menu_hover.png" id="13_oprun"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
 atlas = ExtResource("3_6t5aa")
@@ -1619,7 +1622,23 @@ animations = [{
 radius = 20.0
 height = 128.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("12_f1ej7")
+region = Rect2(3.7245102, 0, 1136.2448, 487)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("13_oprun")
+region = Rect2(1697.2583, -0.42419434, 1365.2878, 567.9781)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("12_f1ej7")
+region = Rect2(1390.265, 0, 1140.7775, 487)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("13_oprun")
+region = Rect2(0, 0, 1393.1932, 575)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 texture_filter = 1
 collision_layer = 2
 script = ExtResource("1_cvnsp")
@@ -1648,3 +1667,30 @@ scale = Vector2(0.66, 0.66)
 texture = ExtResource("10_y4r1p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Escape_Menu" type="Node2D" parent="."]
+
+[node name="EscapeBackground" type="Sprite2D" parent="Escape_Menu"]
+position = Vector2(4, -5)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("11_jej6c")
+
+[node name="SaveAndExit" type="TextureButton" parent="Escape_Menu"]
+offset_left = -723.0
+offset_top = 227.0
+offset_right = -228.0
+offset_bottom = 450.0
+texture_normal = SubResource("AtlasTexture_a8ls1")
+texture_hover = SubResource("AtlasTexture_qfm1y")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MainMenu" type="TextureButton" parent="Escape_Menu"]
+offset_left = 81.0
+offset_top = 240.0
+offset_right = 522.0
+offset_bottom = 427.0
+texture_normal = SubResource("AtlasTexture_fulsm")
+texture_hover = SubResource("AtlasTexture_4r5pv")
+ignore_texture_size = true
+stretch_mode = 5

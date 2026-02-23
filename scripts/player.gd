@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name PlayerController
 
+
+var Escape_Menu = false
 # Interact Prompt 
 var Interact_Node = null:
 	set(new_value):
@@ -11,7 +13,11 @@ var Interact_Node = null:
 			$ButtonPrompt.hide()
 func _ready():
 	Interact_Node = null
+	$Escape_Menu.hide()
 	$Camera2D.zoom = camera_zoom
+	if Global.player_pos!= Vector2(4008.0,2189):
+		global_position = Global.player_pos
+		Global.player_pos = Vector2(4008.0,2189)
 
 
 #func _unhandled_input(event: InputEvent) -> void:
@@ -26,6 +32,14 @@ var direction : Vector2
 
 enum Facing {DOWN,UP,LEFT,RIGHT}
 var player_facing : Facing
+
+func _process(_delta: float) -> void:
+	if Escape_Menu:
+		$Escape_Menu.show()
+	else:
+		$Escape_Menu.hide()
+	if Input.is_action_just_pressed("Escape"):
+		Escape_Menu = !Escape_Menu
 
 
 func _physics_process(delta):# direction & movement
@@ -47,6 +61,7 @@ func _physics_process(delta):# direction & movement
 		player_facing = Facing.RIGHT
 	else:
 		direction.x = 0
+	# Escape Button for Menu
 	
 	# Normalizing Direction Variable
 	direction = direction.normalized()
