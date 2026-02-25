@@ -1,0 +1,295 @@
+[gd_scene load_steps=42 format=3 uid="uid://bdgyedxdewn2t"]
+
+[ext_resource type="Texture2D" uid="uid://b4uyjud268k8o" path="res://assets/Sprites/KeypadBG.png" id="1_o2pmc"]
+[ext_resource type="Script" uid="uid://hu7gu6s0cmxx" path="res://scripts/keypad.gd" id="1_y3le2"]
+[ext_resource type="Texture2D" uid="uid://jiy0bwfftj6p" path="res://assets/Sprites/keypad.png" id="2_1dgaj"]
+[ext_resource type="Texture2D" uid="uid://cvh85otjwvs2o" path="res://assets/Sprites/KeypadPressed.png" id="3_y3le2"]
+[ext_resource type="Texture2D" uid="uid://cc1godb2wjm6y" path="res://assets/Sprites/keypadHover.png" id="4_08hpx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dn7d"]
+atlas = ExtResource("2_1dgaj")
+region = Rect2(0, 0, 255.09842, 248.96057)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqae8"]
+atlas = ExtResource("3_y3le2")
+region = Rect2(0, 0.89646626, 257.98654, 246.28542)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x67r6"]
+atlas = ExtResource("4_08hpx")
+region = Rect2(0, 0, 257.53125, 248.70013)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dgaj"]
+atlas = ExtResource("2_1dgaj")
+region = Rect2(472.21, 0, 255.098, 248.961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3le2"]
+atlas = ExtResource("3_y3le2")
+region = Rect2(472.21, 0.896, 257.987, 246.285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08hpx"]
+atlas = ExtResource("4_08hpx")
+region = Rect2(472.21, 0, 257.531, 248.7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef7rw"]
+atlas = ExtResource("2_1dgaj")
+region = Rect2(914.86, 0, 267.243, 250.351)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv8uw"]
+atlas = ExtResource("3_y3le2")
+region = Rect2(918.555, 0.896, 267, 246.285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_birxu"]
+atlas = ExtResource("4_08hpx")
+region = Rect2(912.78, 0, 273.24, 248.7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ot4jy"]
+atlas = ExtResource("2_1dgaj")
+region = Rect2(0, 342.735, 255.098, 248.961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn4eu"]
+atlas = ExtResource("3_y3le2")
+region = Rect2(0, 342, 257.987, 246.285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lifyw"]
+atlas = ExtResource("4_08hpx")
+region = Rect2(0, 342, 257.531, 248.7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uigmn"]
+atlas = ExtResource("2_1dgaj")
+region = Rect2(472, 342, 255.098, 248.961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al87v"]
+atlas = ExtResource("3_y3le2")
+region = Rect2(472, 342, 257.987, 246.285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4ybg"]
+atlas = ExtResource("4_08hpx")
+region = Rect2(472, 342, 257.531, 248.7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrqky"]
+atlas = ExtResource("2_1dgaj")
+region = Rect2(913.93, 342, 269.228, 248.961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7st5i"]
+atlas = ExtResource("3_y3le2")
+region = Rect2(918.795, 342, 265.257, 246.285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axxcu"]
+atlas = ExtResource("4_08hpx")
+region = Rect2(914.975, 342, 271.546, 248.7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7miwn"]
+atlas = ExtResource("2_1dgaj")
+region = Rect2(0, 675.75, 255.098, 248.961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0sqs"]
+atlas = ExtResource("3_y3le2")
+region = Rect2(0, 675, 257.987, 246.285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4daj5"]
+atlas = ExtResource("4_08hpx")
+region = Rect2(0, 675, 257.531, 248.7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0fkc"]
+atlas = ExtResource("2_1dgaj")
+region = Rect2(472, 675, 255.098, 248.961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isage"]
+atlas = ExtResource("3_y3le2")
+region = Rect2(472, 675, 257.987, 246.285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cngg"]
+atlas = ExtResource("4_08hpx")
+region = Rect2(472, 675, 257.531, 248.7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ns4r"]
+atlas = ExtResource("2_1dgaj")
+region = Rect2(912.05, 675, 270.723, 248.961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uampn"]
+atlas = ExtResource("3_y3le2")
+region = Rect2(916.015, 675, 270, 246.285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dplk4"]
+atlas = ExtResource("4_08hpx")
+region = Rect2(915.07, 675, 270, 248.7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cystx"]
+atlas = ExtResource("2_1dgaj")
+region = Rect2(-1.26, 1001.14, 276.098, 248.961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qf0x"]
+atlas = ExtResource("3_y3le2")
+region = Rect2(-1, 1001, 276, 246.285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhul8"]
+atlas = ExtResource("4_08hpx")
+region = Rect2(-1, 1001, 276, 248.7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoa8l"]
+atlas = ExtResource("2_1dgaj")
+region = Rect2(472, 1001, 255.098, 248.961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osb4v"]
+atlas = ExtResource("3_y3le2")
+region = Rect2(472, 1001, 257.987, 246.285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arwkk"]
+atlas = ExtResource("4_08hpx")
+region = Rect2(472, 1001, 257.531, 248.7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od5cu"]
+atlas = ExtResource("2_1dgaj")
+region = Rect2(913.125, 1001, 270.013, 248.961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xewwq"]
+atlas = ExtResource("3_y3le2")
+region = Rect2(914.6, 1001, 273.935, 246.285)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwb35"]
+atlas = ExtResource("4_08hpx")
+region = Rect2(915.19, 1001, 270, 248.7)
+
+[node name="Keypad" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y3le2")
+
+[node name="KeypadBg" type="Sprite2D" parent="."]
+position = Vector2(-8, 21)
+texture = ExtResource("1_o2pmc")
+
+[node name="GridContainer" type="GridContainer" parent="KeypadBg"]
+custom_minimum_size = Vector2(4, 4)
+offset_left = -151.84
+offset_top = -204.675
+offset_right = 156.16
+offset_bottom = 207.325
+columns = 3
+
+[node name="One" type="TextureButton" parent="KeypadBg/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_2dn7d")
+texture_pressed = SubResource("AtlasTexture_kqae8")
+texture_hover = SubResource("AtlasTexture_x67r6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Two" type="TextureButton" parent="KeypadBg/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_1dgaj")
+texture_pressed = SubResource("AtlasTexture_y3le2")
+texture_hover = SubResource("AtlasTexture_08hpx")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Three" type="TextureButton" parent="KeypadBg/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ef7rw")
+texture_pressed = SubResource("AtlasTexture_lv8uw")
+texture_hover = SubResource("AtlasTexture_birxu")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Four" type="TextureButton" parent="KeypadBg/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ot4jy")
+texture_pressed = SubResource("AtlasTexture_fn4eu")
+texture_hover = SubResource("AtlasTexture_lifyw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Five" type="TextureButton" parent="KeypadBg/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_uigmn")
+texture_pressed = SubResource("AtlasTexture_al87v")
+texture_hover = SubResource("AtlasTexture_l4ybg")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Six" type="TextureButton" parent="KeypadBg/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_jrqky")
+texture_pressed = SubResource("AtlasTexture_7st5i")
+texture_hover = SubResource("AtlasTexture_axxcu")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Seven" type="TextureButton" parent="KeypadBg/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_7miwn")
+texture_pressed = SubResource("AtlasTexture_r0sqs")
+texture_hover = SubResource("AtlasTexture_4daj5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Eight" type="TextureButton" parent="KeypadBg/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_y0fkc")
+texture_pressed = SubResource("AtlasTexture_isage")
+texture_hover = SubResource("AtlasTexture_8cngg")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="One2" type="TextureButton" parent="KeypadBg/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_6ns4r")
+texture_pressed = SubResource("AtlasTexture_uampn")
+texture_hover = SubResource("AtlasTexture_dplk4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Delete" type="TextureButton" parent="KeypadBg/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_cystx")
+texture_pressed = SubResource("AtlasTexture_5qf0x")
+texture_hover = SubResource("AtlasTexture_fhul8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Zero" type="TextureButton" parent="KeypadBg/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_aoa8l")
+texture_pressed = SubResource("AtlasTexture_osb4v")
+texture_hover = SubResource("AtlasTexture_arwkk")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Confirm" type="TextureButton" parent="KeypadBg/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_od5cu")
+texture_pressed = SubResource("AtlasTexture_xewwq")
+texture_hover = SubResource("AtlasTexture_iwb35")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="KeypadBg/GridContainer/One" to="." method="_on_number_pressed" binds= [1]]
+[connection signal="pressed" from="KeypadBg/GridContainer/Two" to="." method="_on_number_pressed" binds= [2]]
+[connection signal="pressed" from="KeypadBg/GridContainer/Three" to="." method="_on_number_pressed" binds= [3]]
+[connection signal="pressed" from="KeypadBg/GridContainer/Four" to="." method="_on_number_pressed" binds= [4]]
+[connection signal="pressed" from="KeypadBg/GridContainer/Five" to="." method="_on_number_pressed" binds= [5]]
+[connection signal="pressed" from="KeypadBg/GridContainer/Six" to="." method="_on_number_pressed" binds= [6]]
+[connection signal="pressed" from="KeypadBg/GridContainer/Seven" to="." method="_on_number_pressed" binds= [7]]
+[connection signal="pressed" from="KeypadBg/GridContainer/Eight" to="." method="_on_number_pressed" binds= [8]]
+[connection signal="pressed" from="KeypadBg/GridContainer/One2" to="." method="_on_number_pressed" binds= [9]]
+[connection signal="pressed" from="KeypadBg/GridContainer/Delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="KeypadBg/GridContainer/Zero" to="." method="_on_number_pressed" binds= [0]]
+[connection signal="pressed" from="KeypadBg/GridContainer/Confirm" to="." method="_on_confirm_pressed"]

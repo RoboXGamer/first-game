@@ -54,6 +54,9 @@ grow_vertical = 0
 [node name="WithdrawSpawn" type="Marker2D" parent="."]
 position = Vector2(537, 472)
 
+[node name="BankDeposit" type="Marker2D" parent="."]
+position = Vector2(338, 666)
+
 [connection signal="body_entered" from="BankInterior/Exit" to="BankInterior/Exit" method="_on_body_entered"]
 [connection signal="body_exited" from="BankInterior/Exit" to="BankInterior/Exit" method="_on_body_exited"]
 [connection signal="body_entered" from="BankInterior/ATM" to="BankInterior/ATM" method="_on_body_entered"]

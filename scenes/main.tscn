@@ -104,7 +104,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("5_choun")
 target_scene = "uid://ckycf8ellfhu4"
-spawn_location_id = "MechanicShopInterior"
+spawn_location_id = "WorkshopInteriorSpawn"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infrastucture/Workshop/Entrance"]
 polygon = PackedVector2Array(4538, 2510, 4628, 2553, 4636, 2530, 4574, 2497)

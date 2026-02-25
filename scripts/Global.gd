@@ -10,7 +10,7 @@ var Loan_Interest_Rate = 9
 var Day = 1
 var Frames = 0
 var current_scene_path: String  = "res://scenes/main.tscn"
-var player_pos : Vector2 = Vector2(4008.0,2189)
+var player_pos : Vector2 = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,7 +58,7 @@ func load_game()->bool:
 				Day = load_var.get("Day",0)
 				Money_Deposited = load_var.get("Money_Deposited",0)
 				current_scene_path = load_var.get("current_scene_path","res://scenes/main.tscn")
-				player_pos = load_var.get("player_pos",Vector2(4008.0,2189))
+				player_pos = load_var.get("player_pos",Vector2.ZERO)
 				return true
 	return false
 
@@ -69,5 +69,5 @@ func new_game():
 	Loan_Interest_Rate = 9
 	Day = 1
 	current_scene_path = "res://scenes/main.tscn"
-	player_pos = Vector2(4008.0,2189)
+	player_pos = Vector2.ZERO
 	last_door_id = ""

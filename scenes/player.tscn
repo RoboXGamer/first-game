@@ -1669,6 +1669,7 @@ texture = ExtResource("10_y4r1p")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Escape_Menu" type="Node2D" parent="."]
+visible = false
 
 [node name="EscapeBackground" type="Sprite2D" parent="Escape_Menu"]
 position = Vector2(4, -5)
