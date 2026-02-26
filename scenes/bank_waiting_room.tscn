@@ -34,7 +34,7 @@ position = Vector2(-3.4482763, 0)
 collision_mask = 2
 script = ExtResource("2_cahgk")
 target_scene = "uid://4m5wex4ttyuk"
-spawn_location_id = "BankIjnterior"
+spawn_location_id = "BankDeposit"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BankWaitingArea/Enter"]
 polygon = PackedVector2Array(74.13794, -127.58624, 29.310425, -79.31036, 122.41382, 3.4482422, 239.65527, -46.551758)
@@ -42,6 +42,9 @@ polygon = PackedVector2Array(74.13794, -127.58624, 29.310425, -79.31036, 122.413
 [node name="WaitingRoomSpawn" type="Marker2D" parent="BankWaitingArea"]
 position = Vector2(84.48279, -13.793091)
 scale = Vector2(1.7241381, 1.7241381)
+
+[node name="BankInterior" type="Marker2D" parent="BankWaitingArea"]
+position = Vector2(568.9656, 294.82764)
 
 [node name="Player" parent="." instance=ExtResource("2_4bauo")]
 position = Vector2(957, 519)

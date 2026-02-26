@@ -15,10 +15,14 @@ func _ready():
 	Interact_Node = null
 	$Escape_Menu.hide()
 	$Camera2D.zoom = camera_zoom
-	if Global.player_pos!= Vector2(4008.0,2189):
+	if Global.player_pos!= Vector2.ZERO:
 		global_position = Global.player_pos
-		Global.player_pos = Vector2(4008.0,2189)
-
+		Global.player_pos = Vector2.ZERO
+	elif Global.last_door_id != "":
+		var spawn_point = get_parent().find_child(Global.last_door_id, true, false)
+		if spawn_point and spawn_point is Marker2D:
+			global_position = spawn_point.global_position
+		Global.last_door_id = ""
 
 #func _unhandled_input(event: InputEvent) -> void:
 	#if event is InputEventKey and event.is_action_pressed("Interact") and Interact_Node!=null:

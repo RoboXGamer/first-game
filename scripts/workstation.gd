@@ -34,7 +34,7 @@ func _on_task_complete():
 	Global.Money += 200
 
 func _on_exit_pressed() -> void:
-	Global.last_door_id = "WorkshopInteriorSpawn"
+	Global.last_door_id = "Workstation"
 	SceneTransition.change_scene("res://scenes/workshop_interior.tscn")
 
 
