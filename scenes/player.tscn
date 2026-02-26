@@ -1668,30 +1668,34 @@ texture = ExtResource("10_y4r1p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Escape_Menu" type="Node2D" parent="."]
-visible = false
+[node name="Escape_Menu" type="CanvasLayer" parent="."]
+scale = Vector2(0.375, 0.375)
+transform = Transform2D(0.375, 0, 0, 0.375, 0, 0)
 
 [node name="EscapeBackground" type="Sprite2D" parent="Escape_Menu"]
-position = Vector2(4, -5)
-scale = Vector2(0.89, 0.89)
+position = Vector2(1533.3337, 869.3335)
+scale = Vector2(1.12, 1.12)
 texture = ExtResource("11_jej6c")
 
-[node name="SaveAndExit" type="TextureButton" parent="Escape_Menu"]
-offset_left = -723.0
-offset_top = 227.0
-offset_right = -228.0
-offset_bottom = 450.0
+[node name="SaveAndExit" type="TextureButton" parent="Escape_Menu/EscapeBackground"]
+offset_left = -673.8095
+offset_top = 169.04773
+offset_right = -178.80951
+offset_bottom = 392.04773
 texture_normal = SubResource("AtlasTexture_a8ls1")
 texture_hover = SubResource("AtlasTexture_qfm1y")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="MainMenu" type="TextureButton" parent="Escape_Menu"]
-offset_left = 81.0
-offset_top = 240.0
-offset_right = 522.0
-offset_bottom = 427.0
+[node name="MainMenu" type="TextureButton" parent="Escape_Menu/EscapeBackground"]
+offset_left = 57.142807
+offset_top = 190.47617
+offset_right = 498.14282
+offset_bottom = 377.47617
 texture_normal = SubResource("AtlasTexture_fulsm")
 texture_hover = SubResource("AtlasTexture_4r5pv")
 ignore_texture_size = true
 stretch_mode = 5
+
+[connection signal="pressed" from="Escape_Menu/EscapeBackground/SaveAndExit" to="." method="_on_save_and_exit_pressed"]
+[connection signal="pressed" from="Escape_Menu/EscapeBackground/MainMenu" to="." method="_on_main_menu_pressed"]

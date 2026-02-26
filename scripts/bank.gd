@@ -17,5 +17,12 @@ func _on_exit_pressed() -> void:
 
 
 func _on_deposit_pressed() -> void:
-	$"../Deposit_Window".show()
+	$"../Deposit_or_Withdraw_Window/Text".text = "Deposit Money:"
+	$"../Deposit_or_Withdraw_Window".show()
+	$".".hide()
+
+
+func _on_withdraw_pressed() -> void:
+	$"../Deposit_or_Withdraw_Window/Text".text = "Withdraw Money:"
+	$"../Deposit_or_Withdraw_Window".show()
 	$".".hide()

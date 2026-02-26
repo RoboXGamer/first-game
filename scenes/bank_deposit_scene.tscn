@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b6560b1hftkdv"]
+[gd_scene load_steps=28 format=3 uid="uid://b6560b1hftkdv"]
 
 [ext_resource type="Texture2D" uid="uid://cwc6t3dvb13sw" path="res://assets/Sprites/bank_Deposit_First_Menu.png" id="1_g1rpa"]
 [ext_resource type="Texture2D" uid="uid://d15oxaloqpx71" path="res://assets/Sprites/Account.png" id="2_52j04"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://d0ep6463reno4" path="res://assets/Sprites/Deposit_Money.png" id="3_qlrv8"]
 [ext_resource type="Texture2D" uid="uid://hy8vbbr83vry" path="res://assets/Sprites/Withdraw_Money.png" id="4_pk2xy"]
 [ext_resource type="Texture2D" uid="uid://b5o5hwr8ymv1s" path="res://assets/Sprites/Exit_Deposit.png" id="5_er3re"]
-[ext_resource type="Texture2D" uid="uid://ddlwyb7x4pr0x" path="res://assets/Sprites/Deposit_Money_Window.png" id="7_pk2xy"]
+[ext_resource type="Texture2D" uid="uid://co3pm21h1548n" path="res://assets/Sprites/Deposit_Money_Window_2.png" id="7_dtehk"]
 [ext_resource type="PackedScene" uid="uid://bdgyedxdewn2t" path="res://scenes/keypad.tscn" id="8_er3re"]
 [ext_resource type="Script" uid="uid://bij3w2vvjip14" path="res://scripts/bank_deposit.gd" id="8_f8m88"]
+[ext_resource type="FontFile" uid="uid://ij733qhywta7" path="res://assets/Fonts/PixelifySans-Regular.ttf" id="10_dtehk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8m88"]
 atlas = ExtResource("2_52j04")
@@ -58,30 +59,6 @@ region = Rect2(4.8484955, 879.23584, 770.17584, 365.22595)
 atlas = ExtResource("5_er3re")
 region = Rect2(0.76394653, 453.02655, 774.11694, 355.6936)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pk2xy"]
-atlas = ExtResource("2_52j04")
-region = Rect2(0, 0, 957.2093, 316.9145)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_er3re"]
-atlas = ExtResource("2_52j04")
-region = Rect2(0.98975754, 900.0809, 955.93524, 327.4953)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vo7cg"]
-atlas = ExtResource("2_52j04")
-region = Rect2(0.80449677, 446.0596, 956.34656, 317.78488)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hi8oe"]
-atlas = ExtResource("4_pk2xy")
-region = Rect2(2.6631927, 1.8638268, 958.3688, 313.6101)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hxxwv"]
-atlas = ExtResource("4_pk2xy")
-region = Rect2(2.979332, 899.8363, 957.4969, 326.99)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_blqy5"]
-atlas = ExtResource("4_pk2xy")
-region = Rect2(3.5342865, 447.91275, 956.1506, 316.49716)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6ips"]
 atlas = ExtResource("5_er3re")
 region = Rect2(0.039138794, 4.7171974, 771.16693, 368.03693)
@@ -93,6 +70,13 @@ region = Rect2(4.8484955, 879.23584, 770.17584, 365.22595)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g81rt"]
 atlas = ExtResource("5_er3re")
 region = Rect2(0.76394653, 453.02655, 774.11694, 355.6936)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wgvh3"]
+font = ExtResource("10_dtehk")
+font_size = 65
+
+[sub_resource type="LabelSettings" id="LabelSettings_dtehk"]
+font_size = 70
 
 [node name="Bank_Deposit_Scene" type="Node2D"]
 scale = Vector2(0.44, 0.44)
@@ -160,7 +144,7 @@ texture_hover = SubResource("AtlasTexture_s1hje")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Deposit_Window" type="TextureRect" parent="."]
+[node name="Deposit_or_Withdraw_Window" type="TextureRect" parent="."]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -172,54 +156,51 @@ offset_bottom = 1538.2727
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.95, 0.95)
-texture = ExtResource("7_pk2xy")
+texture = ExtResource("7_dtehk")
 script = ExtResource("8_f8m88")
 
-[node name="Menu_Buttons" type="Control" parent="Deposit_Window"]
+[node name="Menu_Buttons" type="Control" parent="Deposit_or_Withdraw_Window"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="GridContainer" type="GridContainer" parent="Deposit_Window/Menu_Buttons"]
+[node name="Exit" type="TextureButton" parent="Deposit_or_Withdraw_Window/Menu_Buttons"]
 layout_mode = 0
 offset_left = 39.463257
-offset_top = 550.2394
-offset_right = 339.46326
-offset_bottom = 882.7752
-
-[node name="Account" type="TextureButton" parent="Deposit_Window/Menu_Buttons/GridContainer"]
-custom_minimum_size = Vector2(287.37, 101.525)
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_pk2xy")
-texture_pressed = SubResource("AtlasTexture_er3re")
-texture_hover = SubResource("AtlasTexture_vo7cg")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Withdraw" type="TextureButton" parent="Deposit_Window/Menu_Buttons/GridContainer"]
-custom_minimum_size = Vector2(300, 100)
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_hi8oe")
-texture_pressed = SubResource("AtlasTexture_hxxwv")
-texture_hover = SubResource("AtlasTexture_blqy5")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Exit" type="TextureButton" parent="Deposit_Window/Menu_Buttons/GridContainer"]
-custom_minimum_size = Vector2(160, 120)
-layout_mode = 2
+offset_top = 708.1342
+offset_right = 334.92825
+offset_bottom = 851.6747
 texture_normal = SubResource("AtlasTexture_k6ips")
 texture_pressed = SubResource("AtlasTexture_5sfrq")
 texture_hover = SubResource("AtlasTexture_g81rt")
 ignore_texture_size = true
-stretch_mode = 5
+stretch_mode = 4
 
-[node name="Keypad" parent="Deposit_Window" instance=ExtResource("8_er3re")]
+[node name="Keypad" parent="Deposit_or_Withdraw_Window" instance=ExtResource("8_er3re")]
 layout_mode = 1
 offset_left = 12.306274
 offset_top = 23.866028
 offset_right = 12.306274
 offset_bottom = 23.866028
+
+[node name="Number" type="Label" parent="Deposit_or_Withdraw_Window"]
+layout_mode = 0
+offset_left = 882.77515
+offset_top = 358.85168
+offset_right = 1916.2681
+offset_bottom = 519.1388
+label_settings = SubResource("LabelSettings_wgvh3")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="Deposit_or_Withdraw_Window"]
+layout_mode = 0
+offset_left = 870.8134
+offset_top = 368.42105
+offset_right = 1392.3446
+offset_bottom = 519.1388
+label_settings = SubResource("LabelSettings_dtehk")
+vertical_alignment = 1
 
 [node name="Withdraw_Window" type="TextureRect" parent="."]
 visible = false
@@ -230,5 +211,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [connection signal="pressed" from="Bank_Menu/Selection_Menu/GridContainer/Deposit" to="Bank_Menu" method="_on_deposit_pressed"]
+[connection signal="pressed" from="Bank_Menu/Selection_Menu/GridContainer/Withdraw" to="Bank_Menu" method="_on_withdraw_pressed"]
 [connection signal="pressed" from="Bank_Menu/Selection_Menu/GridContainer/Exit" to="Bank_Menu" method="_on_exit_pressed"]
-[connection signal="pressed" from="Deposit_Window/Menu_Buttons/GridContainer/Exit" to="Deposit_Window" method="_on_exit_pressed"]
+[connection signal="pressed" from="Deposit_or_Withdraw_Window/Menu_Buttons/Exit" to="Deposit_or_Withdraw_Window" method="_on_exit_pressed"]

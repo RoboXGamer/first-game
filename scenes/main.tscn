@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cgvx4qiwouyft" path="res://scripts/Entrance.gd" id="5_choun"]
 [ext_resource type="Texture2D" uid="uid://dkb3c0q6h2wp2" path="res://assets/map/road.png" id="5_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://c6yyifgnkc72i" path="res://assets/map/road 2.png" id="6_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://df5iknfa8vjxo" path="res://assets/buildings/Mechanic_Shop.png" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://bfdwmj8ix6h63" path="res://assets/buildings/Mechanic_Shop.png" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://dxr7vhwm2qnqb" path="res://assets/map/road 3.png" id="7_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bp61k3a28yyv3" path="res://scenes/UI.tscn" id="7_trceg"]
 [ext_resource type="Texture2D" uid="uid://bx6vdjk5eru10" path="res://assets/map/flipped_road 2.png" id="8_muem4"]
@@ -162,6 +162,7 @@ position = Vector2(6, -4)
 polygon = PackedVector2Array(4550, 1922, 4692, 1996, 4807, 1926, 4688, 1856)
 
 [node name="Entrance" type="Area2D" parent="Infrastucture/Bank"]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("5_choun")
@@ -173,7 +174,7 @@ position = Vector2(-8, -16)
 polygon = PackedVector2Array(4569, 1945, 4635, 1985, 4680, 1955, 4615, 1920)
 
 [node name="BankSpawn" type="Marker2D" parent="Infrastucture/Bank"]
-position = Vector2(4607, 1962)
+position = Vector2(4586, 1954)
 
 [node name="House1" type="Node2D" parent="Infrastucture"]
 position = Vector2(6, 0)
@@ -185,6 +186,7 @@ scale = Vector2(0.565, 0.565)
 texture = ExtResource("3_tbgi4")
 
 [node name="Hitbox" type="StaticBody2D" parent="Infrastucture/House1"]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infrastucture/House1/Hitbox"]
 polygon = PackedVector2Array(4225, 2340, 4306, 2381, 4378, 2338, 4306, 2292)
@@ -194,9 +196,6 @@ visible = false
 position = Vector2(0, 1)
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("5_choun")
-target_scene = "uid://bu5rlglo0iaxc"
-spawn_location_id = "House1"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infrastucture/House1/Entrance"]
 polygon = PackedVector2Array(4229, 2356, 4276, 2381, 4291, 2356, 4259, 2342)
@@ -204,15 +203,15 @@ polygon = PackedVector2Array(4229, 2356, 4276, 2381, 4291, 2356, 4259, 2342)
 [node name="Workshop" type="Node2D" parent="Infrastucture"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Infrastucture/Workshop"]
-position = Vector2(4619, 2475)
-scale = Vector2(0.2, 0.2)
+position = Vector2(4672.0005, 2468)
+scale = Vector2(0.135, 0.135)
 texture = ExtResource("6_tefeu")
 
 [node name="Hitbox" type="StaticBody2D" parent="Infrastucture/Workshop"]
 visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infrastucture/Workshop/Hitbox"]
-polygon = PackedVector2Array(4567, 2510, 4653, 2551, 4693, 2552, 4724, 2555, 4756, 2540, 4757, 2461, 4671, 2419, 4582, 2416, 4501, 2452, 4497, 2480)
+polygon = PackedVector2Array(4562, 2465, 4596, 2488, 4621, 2484, 4642, 2487, 4659, 2495, 4683, 2506, 4701, 2513, 4679, 2528, 4701, 2526, 4727, 2524, 4757, 2521, 4791, 2513, 4767, 2493, 4748, 2458, 4754, 2431, 4721, 2414, 4671, 2392, 4623, 2416, 4591, 2436)
 
 [node name="Entrance" type="Area2D" parent="Infrastucture/Workshop"]
 visible = false
@@ -223,10 +222,10 @@ target_scene = "uid://ckycf8ellfhu4"
 spawn_location_id = "WorkshopInteriorSpawn"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infrastucture/Workshop/Entrance"]
-polygon = PackedVector2Array(4538, 2510, 4628, 2553, 4636, 2530, 4574, 2497)
+polygon = PackedVector2Array(4601, 2511, 4655, 2538, 4679, 2525, 4633, 2503)
 
 [node name="MechanicShop" type="Marker2D" parent="Infrastucture/Workshop"]
-position = Vector2(4582, 2524)
+position = Vector2(4637, 2520)
 
 [node name="Building2" type="Sprite2D" parent="Infrastucture"]
 position = Vector2(3970.0002, 2426)
@@ -249,7 +248,5 @@ grow_vertical = 0
 [connection signal="body_entered" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank/Entrance" method="_on_body_entered"]
 [connection signal="body_exited" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank" method="_on_area_exited"]
 [connection signal="body_exited" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank/Entrance" method="_on_body_exited"]
-[connection signal="body_entered" from="Infrastucture/House1/Entrance" to="Infrastucture/House1/Entrance" method="_on_body_entered"]
-[connection signal="body_exited" from="Infrastucture/House1/Entrance" to="Infrastucture/House1/Entrance" method="_on_body_exited"]
 [connection signal="body_entered" from="Infrastucture/Workshop/Entrance" to="Infrastucture/Workshop/Entrance" method="_on_body_entered"]
 [connection signal="body_exited" from="Infrastucture/Workshop/Entrance" to="Infrastucture/Workshop/Entrance" method="_on_body_exited"]

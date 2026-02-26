@@ -72,3 +72,13 @@ func _physics_process(delta):# direction & movement
 	# Velocity Set
 	velocity = direction * move_speed * delta * 200
 	move_and_slide()
+
+
+func _on_save_and_exit_pressed() -> void:
+	Global.save_game()
+	get_tree().quit()
+
+
+func _on_main_menu_pressed() -> void:
+	Global.save_game()
+	SceneTransition.change_scene("res://scenes/main_menu.tscn")

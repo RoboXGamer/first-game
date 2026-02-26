@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfdwmj8ix6h63"
-path="res://.godot/imported/Mechanic_Shop.png-3402c3d2e4a9c46d31ca7d9da5958df6.ctex"
+uid="uid://cc340vhuoepu1"
+path="res://.godot/imported/shipyard2.png-67e6a645e89dec7822e12e6671703010.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buildings/Mechanic_Shop.png"
-dest_files=["res://.godot/imported/Mechanic_Shop.png-3402c3d2e4a9c46d31ca7d9da5958df6.ctex"]
+source_file="res://assets/buildings/shipyard2.png"
+dest_files=["res://.godot/imported/shipyard2.png-67e6a645e89dec7822e12e6671703010.ctex"]
 
 [params]
 
