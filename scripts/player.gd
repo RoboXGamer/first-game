@@ -33,6 +33,7 @@ func _ready():
 @export var camera_zoom = Vector2(1,1)
 
 var direction : Vector2
+var joystick_vector : Vector2 = Vector2.ZERO
 
 enum Facing {DOWN,UP,LEFT,RIGHT}
 var player_facing : Facing
@@ -50,29 +51,33 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta):# direction & movement
-	# Vertical Direction Script
+	# 1. Reset direction
+	direction = Vector2.ZERO
+	# 2. Check Keyboard Input
 	if Input.is_action_pressed("Player_Down"):
 		direction.y = 1
 		player_facing = Facing.DOWN
 	elif Input.is_action_pressed("Player_Up"):
 		direction.y = -1
 		player_facing = Facing.UP
-	else:
-		direction.y=0
-	# Horizontal Direction Script
+		
 	if Input.is_action_pressed("Player_Left"):
 		direction.x = -1
 		player_facing = Facing.LEFT
 	elif Input.is_action_pressed("Player_Right"):
 		direction.x = 1
 		player_facing = Facing.RIGHT
-	else:
-		direction.x = 0
-	# Escape Button for Menu
+		
+	# 3. If no keyboard input, use Joystick Input
+	if direction == Vector2.ZERO and joystick_vector != Vector2.ZERO:
+		direction = joystick_vector
+		# Update facing direction based on joystick angle
+		if abs(direction.x) > abs(direction.y):
+			player_facing = Facing.RIGHT if direction.x > 0 else Facing.LEFT
+		else:
+			player_facing = Facing.DOWN if direction.y > 0 else Facing.UP
 	
-	# Normalizing Direction Variable
 	direction = direction.normalized()
-	# Velocity Set
 	velocity = direction * move_speed * delta * 200
 	move_and_slide()
 
@@ -85,3 +90,7 @@ func _on_save_and_exit_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	Global.save_game()
 	SceneTransition.change_scene("res://scenes/main_menu.tscn")
+	
+func _perform_interaction(value)->void:
+	joystick_vector=value
+	

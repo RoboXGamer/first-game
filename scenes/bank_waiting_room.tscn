@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c8gwgnqi0km1h" path="res://assets/buildings/Bank_Waiting_Area.png" id="1_ce5ev"]
 [ext_resource type="PackedScene" uid="uid://dvli146bs7cxm" path="res://scenes/player.tscn" id="2_4bauo"]
 [ext_resource type="Script" uid="uid://cgvx4qiwouyft" path="res://scripts/Entrance.gd" id="2_cahgk"]
-[ext_resource type="PackedScene" uid="uid://bp61k3a28yyv3" path="res://scenes/UI.tscn" id="3_cahgk"]
+[ext_resource type="PackedScene" uid="uid://c72nsq3cty7jo" path="res://scenes/hud.tscn" id="5_cahgk"]
 
 [node name="Bank_Waiting_Room" type="Node2D"]
 script = ExtResource("1_cahgk")
@@ -49,16 +49,7 @@ position = Vector2(568.9656, 294.82764)
 [node name="Player" parent="." instance=ExtResource("2_4bauo")]
 position = Vector2(957, 519)
 
-[node name="HUD Canvas Layer" type="CanvasLayer" parent="."]
-
-[node name="UI" parent="HUD Canvas Layer" instance=ExtResource("3_cahgk")]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_right = 0.0
-offset_top = -110.0
-offset_bottom = -110.0
-grow_horizontal = 1
-grow_vertical = 0
+[node name="HUD Canvas Layer" parent="." instance=ExtResource("5_cahgk")]
 
 [connection signal="body_entered" from="BankWaitingArea/Exit" to="BankWaitingArea/Exit" method="_on_body_entered"]
 [connection signal="body_exited" from="BankWaitingArea/Exit" to="BankWaitingArea/Exit" method="_on_body_exited"]

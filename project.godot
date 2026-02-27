@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="FirstGame"
+config/name="Aarav's Mumbai Hustle"
 run/main_scene="uid://d6ixfg1dbu2i"
 config/features=PackedStringArray("4.5", "Mobile")
 run/max_fps=60
@@ -25,6 +25,10 @@ MusicManager="*res://scenes/music_manager.tscn"
 [display]
 
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/virtual_joystick_plus/plugin.cfg")
 
 [input]
 

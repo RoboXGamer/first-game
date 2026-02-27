@@ -12,12 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://c6yyifgnkc72i" path="res://assets/map/road 2.png" id="6_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bfdwmj8ix6h63" path="res://assets/buildings/Mechanic_Shop.png" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://dxr7vhwm2qnqb" path="res://assets/map/road 3.png" id="7_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://bp61k3a28yyv3" path="res://scenes/UI.tscn" id="7_trceg"]
 [ext_resource type="Texture2D" uid="uid://bx6vdjk5eru10" path="res://assets/map/flipped_road 2.png" id="8_muem4"]
 [ext_resource type="Texture2D" uid="uid://dkvyr2gm3flvv" path="res://assets/map/flipped_road 3.png" id="9_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://dbm5px10owxw4" path="res://assets/map/flipped_road.png" id="10_0ld40"]
 [ext_resource type="Texture2D" uid="uid://ctqgmkw1epd3d" path="res://assets/map/road_base.png" id="11_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://cf8hbilswldw" path="res://assets/buildings/building_2.png" id="17_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://c72nsq3cty7jo" path="res://scenes/hud.tscn" id="18_dp3eg"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0ld40"]
 tile_data = PackedInt32Array(0, 4, 0, 65536, 5, 0, 131073, 3, 0)
@@ -239,16 +239,7 @@ texture = ExtResource("17_dp3eg")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infrastucture/Building2/Hitbox"]
 polygon = PackedVector2Array(-170.32422, -71.65918, -342.4463, 72.70117, -24.94629, 257.292, 296.1504, 98.8291, -6.8535156, -123.20801)
 
-[node name="HUD Canvas Layer" type="CanvasLayer" parent="."]
-
-[node name="UI" parent="HUD Canvas Layer" instance=ExtResource("7_trceg")]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_right = 0.0
-offset_top = -110.0
-offset_bottom = -110.0
-grow_horizontal = 1
-grow_vertical = 0
+[node name="HUD" parent="." instance=ExtResource("18_dp3eg")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

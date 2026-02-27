@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dxeqjy6jqcywy" path="res://assets/buildings/mechanic_shop_interior.png" id="1_ogx1y"]
 [ext_resource type="PackedScene" uid="uid://dvli146bs7cxm" path="res://scenes/player.tscn" id="2_qlrsb"]
 [ext_resource type="Script" uid="uid://cgvx4qiwouyft" path="res://scripts/Entrance.gd" id="3_dfvdi"]
-[ext_resource type="PackedScene" uid="uid://bp61k3a28yyv3" path="res://scenes/UI.tscn" id="4_1vmwc"]
+[ext_resource type="PackedScene" uid="uid://c72nsq3cty7jo" path="res://scenes/hud.tscn" id="5_dfvdi"]
 
 [node name="WorkshopInterior" type="Node2D"]
 texture_filter = 1
@@ -47,22 +47,13 @@ y_sort_enabled = true
 position = Vector2(424, 603)
 scale = Vector2(0.5, 0.5)
 
-[node name="HUD Canvas Layer" type="CanvasLayer" parent="."]
-
-[node name="UI" parent="HUD Canvas Layer" instance=ExtResource("4_1vmwc")]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_right = 0.0
-offset_top = -110.0
-offset_bottom = -110.0
-grow_horizontal = 1
-grow_vertical = 0
-
 [node name="WorkshopInteriorSpawn" type="Marker2D" parent="."]
 position = Vector2(450, 660)
 
 [node name="Workstation" type="Marker2D" parent="."]
 position = Vector2(379, 399)
+
+[node name="HUD Canvas Layer" parent="." instance=ExtResource("5_dfvdi")]
 
 [connection signal="body_entered" from="MechanicShopInterior/WorkPlace" to="MechanicShopInterior/WorkPlace" method="_on_body_entered"]
 [connection signal="body_exited" from="MechanicShopInterior/WorkPlace" to="MechanicShopInterior/WorkPlace" method="_on_body_exited"]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8pfxnqqfu5x7" path="res://assets/buildings/Bank_Interior.png" id="1_h7tem"]
 [ext_resource type="Script" uid="uid://cgvx4qiwouyft" path="res://scripts/Entrance.gd" id="2_0pk8r"]
 [ext_resource type="PackedScene" uid="uid://dvli146bs7cxm" path="res://scenes/player.tscn" id="2_uu7by"]
-[ext_resource type="PackedScene" uid="uid://bp61k3a28yyv3" path="res://scenes/UI.tscn" id="3_0pk8r"]
+[ext_resource type="PackedScene" uid="uid://c72nsq3cty7jo" path="res://scenes/hud.tscn" id="5_0pk8r"]
 
 [node name="Bank_Interior" type="Node2D"]
 script = ExtResource("1_0pk8r")
@@ -42,22 +42,13 @@ polygon = PackedVector2Array(-224, 224, -126.400024, 308.8, 80, 172.79999, -40, 
 [node name="Player" parent="." instance=ExtResource("2_uu7by")]
 position = Vector2(337, 668)
 
-[node name="HUD Canvas Layer" type="CanvasLayer" parent="."]
-
-[node name="UI" parent="HUD Canvas Layer" instance=ExtResource("3_0pk8r")]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_right = 0.0
-offset_top = -110.0
-offset_bottom = -110.0
-grow_horizontal = 1
-grow_vertical = 0
-
 [node name="WithdrawSpawn" type="Marker2D" parent="."]
 position = Vector2(537, 472)
 
 [node name="BankDeposit" type="Marker2D" parent="."]
 position = Vector2(338, 666)
+
+[node name="HUD Canvas Layer" parent="." instance=ExtResource("5_0pk8r")]
 
 [connection signal="body_entered" from="BankInterior/Exit" to="BankInterior/Exit" method="_on_body_entered"]
 [connection signal="body_exited" from="BankInterior/Exit" to="BankInterior/Exit" method="_on_body_exited"]
