@@ -13,4 +13,5 @@
 script = ExtResource("1_tn5dr")
 Playlist = Array[AudioStream]([ExtResource("2_p07gy"), ExtResource("3_fb0y8"), ExtResource("4_fkbch"), ExtResource("5_r6agn"), ExtResource("6_suxwa"), ExtResource("7_r5t12"), ExtResource("8_l62sp")])
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+volume_db = -40.0

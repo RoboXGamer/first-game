@@ -36,8 +36,11 @@ var direction : Vector2
 
 enum Facing {DOWN,UP,LEFT,RIGHT}
 var player_facing : Facing
-
 func _process(_delta: float) -> void:
+	if Global.Clock >=87:
+		$Label.show()
+		await get_tree().create_timer(1.0).timeout
+		$Label.hide()
 	if Escape_Menu:
 		$Escape_Menu.show()
 	else:

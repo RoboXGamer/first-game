@@ -20,9 +20,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	Clock+=delta
-	if Clock >= 180:
+	if Clock >= 90:
 		Clock = 0
 		Day+=1
+		Money_Deposited += Money_Deposited * 0.09
 func save_game():
 	var place = get_tree() # to get what scene the player is currently in 
 	if place.current_scene:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bu5rlglo0iaxc"]
+[gd_scene load_steps=22 format=3 uid="uid://bu5rlglo0iaxc"]
 
 [ext_resource type="Script" uid="uid://h7us6rx5g7l1" path="res://scripts/workstation.gd" id="1_i7b8v"]
 [ext_resource type="Texture2D" uid="uid://duovfgdywbp4v" path="res://assets/Sprites/Workstation.jpeg" id="1_tmuha"]
@@ -53,11 +53,15 @@ colors = PackedColorArray(0.9361722, 0.9609375, 0.12387085, 1, 0.93279684, 0.941
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jusjj"]
 gradient = SubResource("Gradient_57ibl")
 
+[sub_resource type="LabelSettings" id="LabelSettings_f1c53"]
+font_size = 44
+font_color = Color(0, 0, 0, 1)
+
 [node name="Work" type="Node2D"]
 script = ExtResource("1_i7b8v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1415.0
+offset_right = 1157.0
 offset_bottom = 659.0
 texture = ExtResource("1_tmuha")
 expand_mode = 1
@@ -130,6 +134,15 @@ stretch_margin_bottom = 16
 texture_under = ExtResource("9_i6frl")
 texture_over = ExtResource("10_aso24")
 texture_progress = SubResource("GradientTexture1D_jusjj")
+
+[node name="Hint" type="Label" parent="."]
+offset_left = 290.0
+offset_top = 114.0
+offset_right = 869.0
+offset_bottom = 239.0
+text = "Click inspect and assemble 
+and hold repair for 3 sec"
+label_settings = SubResource("LabelSettings_f1c53")
 
 [connection signal="button_down" from="CenterContainer/WorkController/Repair" to="." method="_on_repair_button_down"]
 [connection signal="button_up" from="CenterContainer/WorkController/Repair" to="." method="_on_repair_button_up"]

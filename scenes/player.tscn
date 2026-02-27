@@ -1,4 +1,4 @@
-[gd_scene load_steps=243 format=3 uid="uid://dvli146bs7cxm"]
+[gd_scene load_steps=244 format=3 uid="uid://dvli146bs7cxm"]
 
 [ext_resource type="Script" uid="uid://d2swjnea4cfm5" path="res://scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Script" uid="uid://dwi7lijsxayw5" path="res://scripts/animation.gd" id="2_6t5aa"]
@@ -1638,6 +1638,10 @@ region = Rect2(1390.265, 0, 1140.7775, 487)
 atlas = ExtResource("13_oprun")
 region = Rect2(0, 0, 1393.1932, 575)
 
+[sub_resource type="LabelSettings" id="LabelSettings_jej6c"]
+font_size = 44
+font_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 texture_filter = 1
 collision_layer = 2
@@ -1669,6 +1673,7 @@ texture = ExtResource("10_y4r1p")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Escape_Menu" type="CanvasLayer" parent="."]
+visible = false
 scale = Vector2(0.375, 0.375)
 transform = Transform2D(0.375, 0, 0, 0.375, 0, 0)
 
@@ -1696,6 +1701,16 @@ texture_normal = SubResource("AtlasTexture_fulsm")
 texture_hover = SubResource("AtlasTexture_4r5pv")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -167.0
+offset_top = -308.0
+offset_right = 213.0
+offset_bottom = -183.0
+text = "       New Day!
+Interest Received!"
+label_settings = SubResource("LabelSettings_jej6c")
 
 [connection signal="pressed" from="Escape_Menu/EscapeBackground/SaveAndExit" to="." method="_on_save_and_exit_pressed"]
 [connection signal="pressed" from="Escape_Menu/EscapeBackground/MainMenu" to="." method="_on_main_menu_pressed"]
