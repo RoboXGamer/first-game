@@ -3,12 +3,15 @@ extends TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	$Balance.text = "₹"+ str(Global.Money_Deposited)
+	$Money_In_Hand.text = "₹"+ str(Global.Money)
+	$Interest_Rate.text = str(Global.Loan_Interest_Rate) +"%"
+	
 
 
 func _on_exit_pressed() -> void:

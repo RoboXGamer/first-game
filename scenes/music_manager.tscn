@@ -1,0 +1,16 @@
+[gd_scene load_steps=9 format=3 uid="uid://cc66lsne4fpuq"]
+
+[ext_resource type="Script" uid="uid://bl74sj4vf8sel" path="res://scripts/music_manager.gd" id="1_tn5dr"]
+[ext_resource type="AudioStream" uid="uid://cqcnxcobhrfnn" path="res://assets/Music/frame 8 bgm.mp3" id="2_p07gy"]
+[ext_resource type="AudioStream" uid="uid://yvd4ifgtejou" path="res://assets/Music/frame 10 bgm.mp3" id="3_fb0y8"]
+[ext_resource type="AudioStream" uid="uid://dkldm1piye26b" path="res://assets/Music/frame 11 bgm.mp3" id="4_fkbch"]
+[ext_resource type="AudioStream" uid="uid://clsxse5li3kx0" path="res://assets/Music/frame 12 bgm.mp3" id="5_r6agn"]
+[ext_resource type="AudioStream" uid="uid://58r0mrn2fvp5" path="res://assets/Music/frame 13 bgm.mp3" id="6_suxwa"]
+[ext_resource type="AudioStream" uid="uid://3kjrmkcw2qx8" path="res://assets/Music/frame 14 bgm.mp3" id="7_r5t12"]
+[ext_resource type="AudioStream" uid="uid://bvpeknvh06ljw" path="res://assets/Music/frame 15 bgm.mp3" id="8_l62sp"]
+
+[node name="MusicManager" type="Node2D"]
+script = ExtResource("1_tn5dr")
+Playlist = Array[AudioStream]([ExtResource("2_p07gy"), ExtResource("3_fb0y8"), ExtResource("4_fkbch"), ExtResource("5_r6agn"), ExtResource("6_suxwa"), ExtResource("7_r5t12"), ExtResource("8_l62sp")])
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

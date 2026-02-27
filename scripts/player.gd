@@ -29,7 +29,7 @@ func _ready():
 
 
 
-@export var move_speed = 85.0
+@export var move_speed = 45.0
 @export var camera_zoom = Vector2(1,1)
 
 var direction : Vector2

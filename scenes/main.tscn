@@ -228,10 +228,16 @@ polygon = PackedVector2Array(4601, 2511, 4655, 2538, 4679, 2525, 4633, 2503)
 position = Vector2(4637, 2520)
 
 [node name="Building2" type="Sprite2D" parent="Infrastucture"]
+y_sort_enabled = true
 position = Vector2(3970.0002, 2426)
 rotation = -0.047513265
 scale = Vector2(0.23626374, 0.23626374)
 texture = ExtResource("17_dp3eg")
+
+[node name="Hitbox" type="StaticBody2D" parent="Infrastucture/Building2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infrastucture/Building2/Hitbox"]
+polygon = PackedVector2Array(-170.32422, -71.65918, -342.4463, 72.70117, -24.94629, 257.292, 296.1504, 98.8291, -6.8535156, -123.20801)
 
 [node name="HUD Canvas Layer" type="CanvasLayer" parent="."]
 
@@ -243,6 +249,13 @@ offset_top = -110.0
 offset_bottom = -110.0
 grow_horizontal = 1
 grow_vertical = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(15, -10)
+build_mode = 1
+polygon = PackedVector2Array(2863, 1626, 5936, 1626, 5936, 2793, 2888, 2788)
 
 [connection signal="body_entered" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank" method="_on_area_entered"]
 [connection signal="body_entered" from="Infrastucture/Bank/Entrance" to="Infrastucture/Bank/Entrance" method="_on_body_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clsxse5li3kx0"
+path="res://.godot/imported/frame 12 bgm.mp3-128e87ccac3ce3dbf41ee08171cb5c38.mp3str"
+
+[deps]
+
+source_file="res://assets/Music/frame 12 bgm.mp3"
+dest_files=["res://.godot/imported/frame 12 bgm.mp3-128e87ccac3ce3dbf41ee08171cb5c38.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

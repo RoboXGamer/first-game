@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/Global.gd"
 SceneTransition="*res://scenes/scene_transition.tscn"
+MusicManager="*res://scenes/music_manager.tscn"
 
 [display]
 
@@ -78,3 +79,4 @@ Escape={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

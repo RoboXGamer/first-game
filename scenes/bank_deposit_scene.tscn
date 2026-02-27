@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b6560b1hftkdv"]
+[gd_scene load_steps=31 format=3 uid="uid://b6560b1hftkdv"]
 
 [ext_resource type="Texture2D" uid="uid://cwc6t3dvb13sw" path="res://assets/Sprites/bank_Deposit_First_Menu.png" id="1_g1rpa"]
 [ext_resource type="Texture2D" uid="uid://d15oxaloqpx71" path="res://assets/Sprites/Account.png" id="2_52j04"]
@@ -59,6 +59,18 @@ region = Rect2(4.8484955, 879.23584, 770.17584, 365.22595)
 atlas = ExtResource("5_er3re")
 region = Rect2(0.76394653, 453.02655, 774.11694, 355.6936)
 
+[sub_resource type="LabelSettings" id="LabelSettings_tdjqi"]
+font_size = 64
+font_color = Color(0.15686275, 0.18039216, 0.3137255, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8gj2"]
+font_size = 64
+font_color = Color(0.15686275, 0.18039216, 0.3137255, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eqn3d"]
+font_size = 64
+font_color = Color(0.15686275, 0.18039216, 0.3137255, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6ips"]
 atlas = ExtResource("5_er3re")
 region = Rect2(0.039138794, 4.7171974, 771.16693, 368.03693)
@@ -109,6 +121,7 @@ offset_right = 1754.5452
 offset_bottom = 940.90906
 
 [node name="Account" type="TextureButton" parent="Bank_Menu/Selection_Menu/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_f8m88")
@@ -143,6 +156,36 @@ texture_pressed = SubResource("AtlasTexture_p4rar")
 texture_hover = SubResource("AtlasTexture_s1hje")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="Balance" type="Label" parent="Bank_Menu"]
+layout_mode = 0
+offset_left = 711.07117
+offset_top = 442.76968
+offset_right = 1201.6202
+offset_bottom = 536.97595
+label_settings = SubResource("LabelSettings_tdjqi")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Money_In_Hand" type="Label" parent="Bank_Menu"]
+layout_mode = 0
+offset_left = 879.838
+offset_top = 668.8648
+offset_right = 1244.3745
+offset_bottom = 746.5851
+label_settings = SubResource("LabelSettings_o8gj2")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Interest_Rate" type="Label" parent="Bank_Menu"]
+layout_mode = 0
+offset_left = 891.0891
+offset_top = 866.6981
+offset_right = 1215.1216
+offset_bottom = 939.708
+label_settings = SubResource("LabelSettings_eqn3d")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Deposit_or_Withdraw_Window" type="TextureRect" parent="."]
 visible = false
